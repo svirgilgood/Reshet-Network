@@ -1,0 +1,765 @@
+@prefix slo: <https://ontologies.edubbainstitute.org/slo/> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix slx: <https://taxonomies.edubbainstitute.org/slx/> .
+@prefix wdt: <https://www.wikidata.org/wiki/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.edubbainstitute.org/slo/>
+	a owl:Ontology ;
+	owl:versionIRI slo:slo1.0.0 ;
+	skos:definition "SLO, the Semitic Linguistic Ontology is a qualified ontology for defining" ;
+	skos:prefLabel "Semitic Linguistic Ontology" ;
+	gist:license "https://ontologies.edubbainstitute.org/slo/" ;
+	.
+
+skos:altLabel
+	a owl:AnnotationProperty ;
+	.
+
+skos:definition
+	a owl:AnnotationProperty ;
+	.
+
+skos:prefLabel
+	a owl:AnnotationProperty ;
+	.
+
+slo:LinguisticCode
+  a owl:Class ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gist:ID ;
+  skos:prefLabel "Linguistic Code" ;
+  skos:definition "Used for referencing a linguistic code in another system." ;
+  skos:example "the morphological codes provided by OSHB are linguistic codes used to identify a form, but only unique based on their position" ;
+.
+
+
+
+
+slo:Adposition
+  a owl:Class ;
+  rdfs:subClassOf slo:Functor ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:Adposition ;
+  rdfs:comment "gold defines: 'An adposition is a part of speech whose members are of a closed set and occur before or after a complement composed of a noun phrase, noun, pronoun, or clause that functions as a noun phrase and forms a single structure with the complement to express its grammatical and semantic relation to another unit within a clause [Comrie 1989: 91; Crystal 1997: 305; Payne 1997: 86].'"@eng ;
+  skos:prefLabel "Adposition" ;
+  skos:definition "includes postpositions and prepositions" ;
+  .
+
+slo:Adjectival
+	a owl:Class ;
+	rdfs:subClassOf slo:Predicator ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:Adjectival ;
+	owl:disjointWith
+		slo:Noun ,
+		slo:Verbal
+		;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			slo:Predicator
+			[
+				a owl:Restriction ;
+				owl:onProperty slo:hasArgument ;
+				owl:someValuesFrom slo:Noun ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty slo:hasProperty ;
+				owl:someValuesFrom slo:GenderProperty ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty slo:hasProperty ;
+				owl:someValuesFrom slo:NumberProperty ;
+			]
+		) ;
+	] ;
+	skos:definition "gold defines: 'An adjectival, or 'adjective', is a part of speech whose members modify nouns. An adjectival specifies the attributes of a noun referent. Note: this is one case among many. Adjectivals are a class of modifiers. An adjectival may be inflected as comparitive or superlative [Crystal 1997: 8; Payne 1997: 63].'"@eng ;
+	skos:prefLabel "Adjectival" ;
+	.
+
+slo:Adverbial
+  a owl:Class ;
+  rdfs:subClassOf slo:Predicator ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:Adverbial ;
+  rdfs:comment "gold defines: 'An adverbial, or 'adverb', narrowly defined, is a part of speech whose members modify verbs for such categories as time, manner, place, or direction. An adverbal, broadly defined, is a part of speech whose members modify any constituent class of words other than nouns, such as verbs, adjectives, adverbs, phrases, clauses, or sentences. Under this definition, the possible type of modification depends on the class of the constituent being modified [Crystal 1997: 11; Payne 1997: 69].'"@eng ;
+  skos:prefLabel "Adverbial" ;
+  skos:definition "part of speech that modifies words other than substantives" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      slo:Predicator
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasArgument ;
+        owl:someValuesFrom [
+          a owl:Class ;
+          owl:unionOf (
+            slo:Verbal
+            slo:Adjectival
+          )
+        ] ;
+      ]
+   ) ;
+  ] ;
+  owl:disjointWith slo:Adjectival ;
+  .
+
+slo:CaseProperty
+  a owl:Class ;
+  rdfs:subClassOf slo:MorphosyntacticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:comment "gold defines: 'CaseProperty is the class of properties that concerns the grammatical encoding of a noun's relationship (syntactic or semantic) to some other element in the sentence, such as a verb, noun, pronoun, or adposition [Pei and Gaynor 1954: 35; Crystal 1980: 53-54; Anderson 1985: 179-180; Andrews 1985: 7172; Kuno 1973: 45; Blake 2001].'"@eng ;
+  skos:prefLabel "Case Property" ;
+  .
+
+slo:Connective
+  a owl:Class ;
+  rdfs:subClassOf slo:Functor ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:Connective ;
+  rdfs:comment "gold defines: 'Also known as a conjunction, a Connective is a class of parts of speech whose members syntactically link words or larger  constituents, and expresses a semantic relationship between them. A conjunction is positionally fixed relative to one or more of the elements related by it, thus distinguishing it from constituents such as English conjunctive adverbs [Crystal 1997: 81].'"@eng ;
+  skos:prefLabel "Connective" ;
+  .
+
+slo:Converb
+  a owl:Class ;
+  rdfs:subClassOf slo:Verbal ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:Converb ;
+  rdfs:comment "gold defines: 'A nonfinite verb form, i.e., lacking specifications for tense, mood, and agreement with their arguments, whose main function is to mark adverbial subordination. Converbal constructions are generally not arguments but modifiers, and they generally modify verbs, clauses or sentences, but not nouns or noun phrases. They are embedded or incorporated into the superordinate clause, and contrast with coordinate constructions. Converbal constructions can often be paraphrased by means of coordinate constructions in languages that allow coordination of clauses, such as in the gloss for the Korean example below. [Haspelmath 1995: 3-8]'"@eng ;
+  skos:prefLabel "Converb" ;
+.
+
+
+slo:Classifier
+	a owl:Class ;
+	rdfs:subClassOf slo:PartOfSpeechProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:Classifier ;
+	skos:definition "gold defines this class: 'In grammar, a morpheme whose function is to indicate the formal or semantic class to which items belong are  sometimes called classifiers, e.g. -ly is an adverb classifier, -ess is a 'femininity' classifier. The marking of lexical items as belonging to the same semantic class is an important feature in many languages (e.g. Chinese, Vietnamese, Hopi), and sometimes quite unexpected bases of classification are found, in terms of shape, size, colour, movability, animacy, status and so on. [Crystal 2003: 74]'"@eng ;
+	skos:prefLabel "Classifier" ;
+	.
+
+slo:Determiner
+	a owl:Class ;
+	rdfs:subClassOf slo:Adjectival ;
+	rdfs:comment "This could be a category of adjectives, rather than a seperate class, but it feels like Determiners are common and distinct enough they should get their own class" ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:Determiner ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			slo:Adjectival
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom slo:DeterminerType ;
+			]
+		) ;
+	] ;
+	skos:definition "gold defines: 'rdfs:comment \"A Determiner is a part of speech whose members belong to a class of noun modifiers and express the reference, including  quantity, of a noun [Crystal 1997: 112].'"@eng ;
+	skos:prefLabel "Determiner" ;
+	.
+
+slo:DeterminerType
+	a owl:Class ;
+	.
+
+slo:Functor
+	a owl:Class ;
+	rdfs:subClassOf slo:PartOfSpeechProperty ;
+	rdfs:comment "A functor relates a sub-clause to the main clause. " ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso
+		gold:Functor ,
+		wdt:Q2120608
+		;
+	skos:definition "gold defines: 'Functor is the class of syntactic word whose members are neither relation- nor argument-like non-relational [Anderson 1997: 20]. Typical functors include adpositions, subordinators, and complementizers.'"@eng ;
+	skos:prefLabel "Functor" ;
+	.
+
+slo:GenderProperty
+	a owl:Class ;
+	rdfs:subClassOf slo:MorphosyntacticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	skos:prefLabel "Gender" ;
+	.
+
+slo:LinguisticExpression
+	a owl:Class ;
+  skos:prefLabel "Linguistic Expression" ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:definition "any physical form used to represent a linguistic unit" ;
+  rdfs:comment "gold defines: 'A LinguisticExpression is any physical form (sound, visual image or sequence thereof) used to represent a linguistic unit. A linguistic expression may be spoken, written, or signed. A linguistic expression is distinct form the actual process (speaking, writing, signing) that produces the expression.' "@eng ;
+	.
+
+slo:OrthographicPhrase
+  a owl:Class ;
+  rdfs:subClassOf slo:LinguisticExpression ;
+  rdfs:seeAlso gold:OrthographicPhrase ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Orthographic Phrase" ;
+  skos:definition "a phrase physically set out by markers on the page" ;
+  rdfs:comment "some of the corpora in this domain use things like cantillation marks, or punctuation to set apart phrases. These are not sentences, but rather phrases and clauses." ;
+.
+
+slo:OrthographicWord
+  a owl:Class ;
+  rdfs:subClassOf slo:LinguisticExpression ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:OrthographicWord ;
+  skos:prefLabel "Word" ;
+  skos:altLabel "Orthographic Word" ;
+  skos:defintion "the fundamental unit of orthography, often set apart by breaks, spaces, or dividers" ;
+  rdfs:comment "gold says the word is usually set off by white space but that is not ture in many of the texts in the primary domain of this ontology." ;
+  .
+
+slo:LinguisticProperty
+	a owl:Class ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:LinguisticProperty ;
+	skos:definition "the properties that define linguistic units" ;
+	skos:prefLabel "Linguistic Property" ;
+  rdfs:comment "gold defines: 'A property whose values are not involved in agreement or government, but are inherent only. That is, the elements on which the values are found are not controllers of agreement. Because it is not involved in either agreement or government, a morphosemantic feature is not relevant to syntax. [Kibort 2008f]'"@eng ;
+	.
+
+slo:MorphosemanticProperty
+	a owl:Class ;
+	rdfs:subClassOf slo:LinguisticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:MorphosemanticProperty ;
+  skos:prefLabel "Morphosemantic Property" ;
+  skos:definition "semantic properties that are inherent, and not part of agreement or government" ;
+  rdfs:comment "gold defines: 'A property whose values are not involved in agreement or government, but are inherent only. That is, the elements on which the values are found are not controllers of agreement. Because it is not involved in either agreement or government, a morphosemantic feature is not relevant to syntax. [Kibort 2008f]'"@eng ;
+	.
+
+slo:MorphosyntacticProperty
+	a owl:Class ;
+	rdfs:subClassOf slo:LinguisticProperty ;
+	rdfs:comment " gold defines: 'MorphosyntacticFeature is the class of linguistic features that govern the grammatical behavior of morphosyntactic units. E.g., two morphosyntactic units can agree according to shared morphosyntactic features. Morphosyntactic features are also called grammatical categories. This class is intended to represent only the formal aspects of morphosyntax; that is, there is no notional component. In a grammatical system, such features occur in contrast to one another other, and are typically expressed in the same fashion. [Crystal 1985: 43-44; Hopper, P. 1992: 81; Bybee 1985: 191]'"@eng ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:MorphosyntacticProperty ;
+	skos:definition "the morphological features that govern grammatical behavior" ;
+	skos:prefLabel "Morphosyntactic Property" ;
+	.
+
+slo:Noun
+	a owl:Class ;
+	rdfs:subClassOf
+		slo:PartOfSpeechProperty ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:PartOfSpeechProperty
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasProperty ;
+					owl:someValuesFrom slo:GenderProperty ;
+				]
+			) ;
+		] ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:PartOfSpeechProperty
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasProperty ;
+					owl:someValuesFrom slo:NumberProperty ;
+				]
+			) ;
+		] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:CaseProperty ;
+        ]
+      )
+    ]
+		;
+	rdfs:comment "What is a noun? Van De Merwe, Naude, and Kroeze define a Noun as 'The noun is a term in the grammatical calssification of words that traditionally refers to a class of words indicating persons or things. The noun includes the following main classes: SUBSTANTIVES, pronouns and numerals' [p. 535]" ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:Noun ;
+	owl:disjointWith
+		slo:Participle ,
+		slo:Predicator ,
+		slo:Verbal
+		;
+	skos:definition "gold defines this class: 'A term used in the grammatical classification of words, traditionally defines as the \"name of a person, place or thing,\" but the vagueness associated with the notions of \"name\" and \"thing\" (e.g. is 'beauty' a thing?) has led linguistic descriptions to analyze this class in terms of the formal and functional criteria of syntax and morphology.  In linguistic terms, nouns are items which display certain types of inflection (e.g. of case or number), have a specific distribution (e.g. they may follow prepositions but not, say, modals), and perform a specific syntactic function (e.g. as subject or object of a sentence).  Nouns are generally subclassified into common and proper types, and analyzed in terms of number, gender, case and countability. [Crystal 2008: 320]'"@eng ;
+	skos:prefLabel "Noun" ;
+	.
+
+slo:NumberProperty
+	a owl:Class ;
+	rdfs:subClassOf slo:MorphosyntacticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:NumberProperty ;
+  skos:prefLabel "Number Property" ;
+  skos:definition "grammatical recording of quantity" ;
+  rdfs:comment "gold defines: 'NumberProperty is the class of properties that concern the grammatical encoding of quantity. It is often found on nouns, pronouns, and verbs and expresses count distinctions--such as 'one' or 'more than one'. The count distinctions typically, but not always, correspond to the actual count of the referents of the marked noun or Pronoun. [Crystal 1980: 245; Hartmann and Stork 1972: 155]'"@eng ;
+	.
+
+slo:Numeral
+  a owl:Class ;
+  rdfs:subClassOf slo:PartOfSpeechProperty ;
+  rdfs:isDefinedBy  <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Numeral" ;
+  skos:definition "a part of speech that acts as an adjective or pronoun and express number" ;
+  rdfs:comment "gold defines: 'A numeral is a partOfSpeech whose members function most typically as adjectives or pronouns and express a number, or relation to the number, such as one of the following: quantity, sequence, frequency, fraction [Hartmann and Stork 1972: 155; Pei and Gaynor 1954: 149].'"@eng ;
+  .
+
+slo:PartOfSpeechProperty
+	a owl:Class ;
+	rdfs:subClassOf slo:LinguisticProperty ;
+	rdfs:comment "gold defines this class: The property that identifies the grammatical class of a word.  The main 'parts of speech' recognized by most school grammars derive from the work of the ancient Greek and Roman grammarians, primarily the noun, pronoun, verb, adverb, adjective, preposition, conjunction and interjection, with article, participle, and others often added.  Because of the inexplicitness with which these terms were traditionally defined and the restricted nature of their definitions, it has become preferable to use such terms as word-class or form-class, where the grouping is based on formal criteria of a more universally applicable kind. [Crystal 1997: 280]"@eng ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:PartOfSpeechProperty ;
+	skos:definition "The property that identifies the grammatical class of a word" ;
+	skos:prefLabel "Part Of Speech" ;
+	.
+
+slo:Participle
+	a owl:Class ;
+	rdfs:subClassOf
+		slo:PartOfSpeechProperty ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:PartOfSpeechProperty
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasProperty ;
+					owl:someValuesFrom slo:GenderProperty ;
+				]
+			) ;
+		] ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:PartOfSpeechProperty
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasProperty ;
+					owl:someValuesFrom slo:NumberProperty ;
+				]
+			) ;
+		] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:VerbStem ;
+        ]
+      )
+    ] ;
+  rdfs:comment "subclass of verbal with gender and number, but not Tense and person" ;
+	rdfs:comment "gold defines this class: 'A participle is a word which participates as both a verb (by showing tense) and as an adjective (by showing adjectival inflection).  In modern usage, the term refers to a non-finite part of the verb other than the infinitive (independent of the function of these forms in the sentence).  [Bauer 2004: 82]'"@eng ;
+	rdfs:seeAlso gold:Participle ;
+	owl:disjointWith slo:Verbal ;
+	skos:prefLabel "Participle" ;
+	.
+
+slo:Particle
+	a owl:Class ;
+	rdfs:subClassOf slo:PartOfSpeechProperty ;
+	skos:definition "Particle is a broader term then what GOLD defines it as. Particle is a non-inflected word that can not easily be classified with other parts of speech. GOLD defines it: 'A term used to refer to an invariable item with grammatical function, especially one which does not readily fit into a standard classification of parts of speech. [Crystal 1997: 279-280]'"@eng ;
+	.
+
+slo:PersonProperty
+  a owl:Class ;
+  rdfs:subClassOf slo:MorphosyntacticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:PersonProperty ;
+  skos:prefLabel "Person Property" ;
+  skos:definition "the relationship of the speaker with the action" ;
+  rdfs:comment "gold defines: 'PersonProperty is the class of properties  with a deictic dimension, interpreted relative to the speaker, encoding the participants in a speech situation. Usually a three-way contrast is found: firstPerson (speaker), secondPerson (addressee), and thirdPerson (neither speaker nor addressee). Other distinctions within this feature include: inclusive/exclusive and proximative/obviative. [Crystal 1997: 285-286]' "@eng ;
+  .
+
+slo:ProForm
+  a owl:Class ;
+  rdfs:subClassOf slo:PartOfSpeechProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:ProForm ;
+  rdfs:comment "gold defines: 'A ProForm is a partOfSpeech whose members usually substitute for other constituents, including phrases, clauses, or sentences, and whose meaning is recoverable from the linguistic or extralinguistic context [Crystal 1997: 310; Schachter 1985: 24-25].'"@eng ;
+  skos:prefLabel "ProForm" ;
+.
+
+slo:Pronominal
+  a owl:Class ;
+  rdfs:subClassOf slo:ProForm ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Pronominal" ;
+.
+
+slo:VoiceProperty
+  a owl:Class ;
+  rdfs:subClassOf slo:MorphosyntacticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:VoiceProperty ;
+  rdfs:comment "gold defines: 'VoiceProperty is the class of properties that concern the grammatical encoding of the relationship between the verb and the nominals in a subject-predicate configuration. It selects a grammatically prominent syntactic constituent--subject--from the underlying semantic functions. In accusative language, the basic strategy is to select an agent as a subject [Shibatani 1988: 3]. It can be said that all voice systems mark the affectedness/nonaffectedness of sentential subjects [Klaiman 1988: 30].' "@eng ;
+  skos:prefLabel "Voice Property" ;
+  skos:definition "the relationship of the verb to the subject predicate pattern" ;
+  .
+
+
+slo:ActiveVoice
+  a owl:Class ;
+  rdfs:subClassOf slo:VoiceProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:ActiveVoice ;
+  rdfs:comment "gold defines: 'Associated with transitivity, when the action is performed by an agent (subject) on another participant (object) [McIntosh 1984: 108]. It refers to the category of underived verb forms associated with the basic diathesis [Shibatani 1995: 7].'"@eng ;
+  skos:prefLabel "Active Voice" ;
+  skos:definition "the subject of the verb is actively involved in the action" ;
+.
+
+slo:PassiveVoice
+  a owl:Class ;
+  rdfs:subClassOf slo:VoiceProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:seeAlso gold:PassiveVoice ;
+  rdfs:comment "gold defines:'Associated with actions performed on the subject by an unspecified agent [McIntosh 1984: 108]. Refers to the category of verb forms, typically identifies with a specific morphological marking, that encode the derived diatheses in which the agent role is not linked with a subject noun phrase: Diatheis: D1=(X=AgOb)(Y+SUBabs/nom) [Shibatani 1995: 7].'"@eng ;
+  skos:prefLabel "Passive Voice" ;
+  skos:definition "the subect of the verb is being acted upon" ;
+  .
+
+slo:Predicator
+	a owl:Class ;
+	rdfs:subClassOf slo:PartOfSpeechProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:Predicator ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			slo:PartOfSpeechProperty
+			[
+				a owl:Restriction ;
+				owl:onProperty slo:hasArgument ;
+				owl:someValuesFrom slo:LinguisticExpression ;
+			]
+		) ;
+	] ;
+	skos:definition "gold defines: 'Predicator is the class of syntactic words that are fundamentally relation inducing. That is, predicators license argument structure [Anderson 1997: 14]. Verbs are quintessential predicators, though other categories, such as determiners and some nouns, are also predicative in nature.'"@eng ;
+	skos:prefLabel "Predicator" ;
+	.
+
+slo:SemanticProperty
+  a owl:Class ;
+  rdfs:subClassOf slo:LinguisticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:comment "gold defines: 'In componential analysis, one of several features which together can be said to make up the semantic meaning of a word or utterance.  Thus 'raining' could be analyzed into the component features 'precipitation', 'liquid' (not 'solid' as in 'hail'), 'average' (not 'light' as /drizzling/ or 'heavy' as /pouring/), etc. [...] Alternative terms: semantic feature, semantic [component], semantic marker. [Hartmann and Stork 1972: 203]'"@eng ;
+  skos:prefLabel "Semantic Property" ;
+  .
+
+
+slo:TenseMoodAspect
+	a owl:Class ;
+	rdfs:subClassOf slo:MorphosemanticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	skos:altLabel "conjugation" ;
+	skos:definition "Includes all of the overlapping groups of Semitic verbal forms that include the _conjugations_, the _modals_, and the _non-finites_" ;
+	skos:prefLabel "Tense Mood Aspect" ;
+	.
+
+slo:VerbStem
+	a owl:Class ;
+	rdfs:subClassOf slo:MorphosemanticProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	skos:altLabel
+		"binyanim" ,
+		"conjugation" ,
+		"derived stems" ,
+		"stirpes (from Latin stirps)" ,
+		"themes"
+		;
+	skos:definition "a inflectional constraint on verbs marking Aktionsart, including voice, type of movement/activity, contour of movement (transitive/intransitive), causation, or double status (reflexive, reciprocal, tolerative). see [Waltke and O'Connor 1990, 350]."@en ;
+	skos:prefLabel "Verb Stem" ;
+	.
+
+
+slo:GroundStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Ground Stem" ;
+  skos:definition "" ;
+  skos:altLabel "Base Stem", "Grundstamm"@de ;
+  .
+
+slo:GpStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Gp Stem" ;
+  .
+
+
+slo:GtStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Gt Stem" ;
+.
+
+slo:DoubleStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Duplication Stem" ;
+  skos:definition "stem that has a doubling of the middle radical" ;
+  .
+
+slo:CausativeStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Causative Stem" ;
+  skos:definition "" ;
+  skos:altLabel "C-Stem"  ;
+  .
+
+slo:CpStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Cp Stem" ;
+  skos:definition "the passive form of the causative stem" ;
+.
+
+
+slo:CtStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Ct Stem" ;
+  skos:definition "this is the t-affixed form of the Causative Stem" ;
+  rdfs:seeAlso slo:CausativeStem ;
+.
+
+slo:DpStem
+  a owl:Class ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:subClassOf slo:VerbStem ;
+  skos:prefLabel "Dp Stem" ;
+  skos:definition "the passive form for the duplication stem" ;
+.
+
+slo:DtStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Dt Stem" ;
+  skos:definition "this is the t-affixed form of the Doubled Stem" ;
+  rdfs:seeAlso slo:DoubleStem ;
+.
+
+slo:NStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "N Stem" ;
+  skos:definition "this is the n prefixed form of the stem" ;
+  .
+
+slo:NtStem
+  a owl:Class ;
+  rdfs:subClassOf slo:VerbStem ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Nt Stem" ;
+  skos:definition "The form that has an affixed or infixed t and a prefixed n." ;
+.
+slo:LinguisticUnit
+	a owl:Class ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:LinguisticUnit ;
+  rdfs:comment "gold defines: 'This term is often used in linguistics and phonetics to refer to any entity which constitutes the focus of an enquiry. The unit is the stretch of language that carries grammatical patterns, and within which grammatical choices are made. For example, the unit sentence consists of one or more instances of the unit clause, and so on. [Crystal 2008: 503]' "@eng ;
+  skos:prefLabel "Linguistic Unit" ;
+  skos:definition "a stretch of a language that serves a gramatical pattern" ;
+  .
+
+slo:GrammarUnit
+  a owl:Class ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:subClassOf slo:LinguisticUnit ;
+  rdfs:seeAlso gold:GrammarUnit ;
+  rdfs:comment "gold defines: 'A GrammarUnit is the structural component of the linguistic sign and includes notions such as morpheme, syntactic word, and construction. Grammar units are classified according to their mereology (part-whole and complexity),  morphosyntactic function, and whether they exist in a bound or free forms.'"@eng ;
+  skos:prefLabel "Grammar Unit" ;
+  skos:definition "the linguistic unit that covers notions such as morpheme, syntactic word and constructions" ;
+  .
+
+slo:Suffix
+  a owl:Class ;
+  rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  rdfs:subClassOf slo:GrammarUnit ;
+  rdfs:seeAlso gold:Suffix ;
+  rdfs:comment "gold defines: 'An affix, consisting of a letter, syllable, or syllables, that follows a stem or word, modifying its meaning. Suffixes may be inflectional or derivational. [Crystal 1987: 431; Hartmann and Stork 1972: 225; Pei and Gaynor 1980: 207]'"@eng ;
+  rdfs:comment "GOLD places this as a subclass of Affix, which is a subclass of GrammarUnit. This structure might also need to be listed out here as well." ;
+.
+
+slo:Verbal
+	a owl:Class ;
+	rdfs:subClassOf
+		slo:Predicator ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:Predicator
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasObject ;
+					owl:someValuesFrom slo:LinguisticExpression ;
+				]
+			) ;
+		] ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:Predicator
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasProperty ;
+					owl:someValuesFrom slo:GenderProperty ;
+				]
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasProperty ;
+					owl:someValuesFrom slo:NumberProperty ;
+				]
+			) ;
+		] ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				slo:Predicator
+				[
+					a owl:Restriction ;
+					owl:onProperty slo:hasSubject ;
+					owl:someValuesFrom slo:LinguisticExpression ;
+				]
+			) ;
+		]
+		;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:Verbal ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			slo:Predicator
+			[
+				a owl:Restriction ;
+				owl:onProperty slo:hasProperty ;
+				owl:someValuesFrom slo:TenseMoodAspect ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty slo:hasProperty ;
+				owl:someValuesFrom slo:VerbStem ;
+			]
+		) ;
+	] ;
+	skos:definition "gold defines: 'A Verbal is a part of speech whose members typically signal events and actions; constitute, singly or in a phrase, a minimal  predicate in a  clause; govern the number and types of other constituents which may occur in the clause; and, in inflectional languages, may be inflected for tense, aspect, voice, modality, or agreement with other constituents in person, number, or grammatical gender  [Crystal 1997: 409; Givon 1984: 52; Payne 1997: 47].'"@eng ;
+	skos:prefLabel "Verbal" ;
+	.
+
+
+slo:VoiceProperty
+  a owl:Class ;
+  rdfs:comment """gold defines: 'VoiceProperty is the class of properties that concern the
+grammatical encoding of the relationship between the verb and the nominals in
+a subject-predicate configuration. It selects a grammatically prominent
+syntactic constituent--subject--from the underlying semantic functions. In
+accusative language, the basic strategy is to select an agent as a subject
+[Shibatani 1988: 3]. It can be said that all voice systems mark the
+affectedness/nonaffectedness of sentential subjects [Klaiman 1988: 30].
+'"""@eng ;
+  rdfs:seeAlso gold:VoiceProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+  skos:prefLabel "Voice Property" ;
+  skos:definition """the grammatical relationship between the verb and its subject-predicate configuration""" ;
+  .
+
+
+
+slo:hasArgument
+	a owl:ObjectProperty ;
+	rdfs:comment "see gold: 'The syntactic entity about which something is predicated.' Gold says that htis has range gold:Clause. I see this more as the subject and object of a verb,but I am not sure this is the most semantic modeling idea. Does gold have it right? this is the word linking back to the clause? "@eng ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:argument ;
+	skos:definition "the thing which the linugistic unit is predicated" ;
+	skos:prefLabel "has argument" ;
+	.
+
+slo:hasFeature
+	a owl:ObjectProperty ;
+	rdfs:comment "this is different than the `gold:hasFeature`, but more similar to the gold:feature" ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:feature ;
+	skos:definition "the connection between a linguistic unit, and its Linuguistic feature" ;
+	skos:prefLabel "has feature" ;
+	.
+
+slo:hasObject
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf slo:hasArgument ;
+	rdfs:domain slo:Predicator ;
+	rdfs:seeAlso gold:object ;
+	skos:definition "the predicaotr has this as an object" ;
+	skos:prefLabel "has object" ;
+	.
+
+slo:hasProperty
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:hasProperty ;
+	skos:definition "The relation between a linguistic unit and a linguistic property, e.g., (m1 hasProperty AllativeCase) where m1 is an instance of Morpheme."@eng ;
+	skos:prefLabel "has property" ;
+	.
+
+slo:hasSubject
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf slo:hasArgument ;
+	rdfs:domain slo:Predicator ;
+	rdfs:seeAlso gold:subject ;
+	skos:definition "the predicator has this subject" ;
+	skos:prefLabel "has subject" ;
+	.
+
+gist:isCategorizedBy
+	a owl:ObjectProperty ;
+	.
+
+gist:license
+	a owl:AnnotationProperty ;
+	.
+
+slo:Language
+  a owl:Class ;
+  rdfs:seeAlso gold:Language ;
+  skos:prefLabel "Language" ;
+  skos:definition "a fundamental method for human communication" ;
+.
+
+slo:_aramaic
+  a slo:Language ;
+  skos:prefLabel "Aramaic" ;
+  .
+slo:_hebrew
+  a slo:Language ;
+  skos:prefLabel "Hebrew" ;
+  .

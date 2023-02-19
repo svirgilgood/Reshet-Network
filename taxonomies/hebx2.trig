@@ -1,0 +1,1015 @@
+@prefix hebx: <https://taxonomies.edubbainstitute.org/hebx/> .
+@prefix arax: <https://taxonomies.edubbainstitute.org/arax/> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix slo: <https://ontologies.edubbainstitute.org/slo/> .
+@prefix slx: <https://taxonomies.edubbainstitute.org/slx/> .
+@prefix wdt: <https://www.wikidata.org/wiki/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+hebx:
+  rdf:type owl:Ontology ;
+  owl:versionIRI <https://taxonomies.edubbainstitute.org/hebx0.1.0> ;
+  owl:imports <https://ontologies.edubbainstitute.org/slo/>
+.
+
+hebx:_Organization_openScripturesHebrewBible
+  rdf:type gist:Organization ;
+  skos:prefLabel "Open Scriptures Hebrew Bible" ;
+  skos:altLabel "OSHB" ;
+  gist:hasAddress "https://hb.openscriptures.org/HomeFiles/Oshb.html" ;
+.
+
+hebx:_cardinal_number
+  rdf:type slo:Numeral, slo:Adjectival ;
+  skos:prefLabel "Cardinal Number" ;
+  skos:altLabel "cardinal" ;
+  rdfs:seeAlso gold:CardinalNumeral ;
+  rdfs:comment "gold defines: 'A cardinal numeral is a numeral of the class whose members are considered basic in form, are used in counting, and are used in expressing how many objects are referred to [Crystal 1997: 52].'"@eng ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "c"
+   ] ;
+  .
+
+hebx:_ordinal_number
+  rdf:type slo:Numeral, slo:Adjectival ;
+  skos:prefLabel "Ordinal Number" ;
+  skos:altLabel "ordinal" ;
+  rdfs:seeAlso gold:OrdinalNumeral ;
+  rdfs:comment "gold defines: 'An ordinal numeral is a numeral belonging to a class whose members designate positions in a sequence [Crystal 1997: 272].'"@eng ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "o"
+  ] ;
+  .
+
+hebx:_both
+  rdf:type slo:GenderProperty ;
+  skos:prefLabel "Both Genders" ;
+  skos:altLabel "both" ;
+  rdfs:comment "this is for both genders in a noun, common is used to convey this idea in verbs. This terminology comes from the OSHB morphology, and perhaps should be consolodated" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "b"
+  ] ;
+.
+
+
+hebx:_common
+  rdf:type slo:GenderProperty ;
+  skos:prefLabel "Common" ;
+  skos:altLabel "common" ;
+  skos:definition "Common is the common gender property, both male and female genders included" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "c"
+  ] ;
+.
+
+hebx:_infinitive_absolute
+  rdf:type slo:Converb ;
+  skos:prefLabel "Infinitive Absolute" ;
+  skos:altLabel "abs" ;
+  slo:inLanguage slo:_hebrew ;
+  rdfs:comment "There shouldn't be any instances of a MorphosyntacticProperty, but I am not entirely sure what this is" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "a"
+  ] ;
+.
+
+hebx:_active
+  rdf:type slo:ActiveVoice ;
+  skos:prefLabel "Active" ;
+  skos:altLabel "act" ;
+.
+
+hebx:_adjective
+  rdf:type slo:Adjectival ;
+  skos:prefLabel "Adjectival" ;
+  skos:altLabel "adj" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "A"
+  ] ;
+.
+
+hebx:_adverb
+  rdf:type slo:Adverbial ;
+  skos:prefLabel "Adverb" ;
+  skos:altLabel "adv" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "D"
+  ] ;
+.
+
+hebx:_affirmation
+  rdf:type slo:Partical ;
+  skos:prefLabel "Affirmation" ;
+  skos:altLabel "affirmation" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "a"
+  ] ;
+.
+
+arax:_aphel
+  rdf:type slo:CausativeStem ;
+  skos:prefLabel "Aphel" ;
+  skos:altLabel "aphel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "a"
+  ] ;
+.
+
+hebx:_definite_article
+  rdf:type slo:Determiner ;
+  skos:prefLabel "Definite Article" ;
+  skos:altLabel "art" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "d"
+  ] ;
+.
+
+hebx:_cohortative
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Cohortative" ;
+  skos:altLabel "coh" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "h"
+  ] ;
+.
+
+hebx:_conjunction
+  rdf:type slo:Connective ;
+  skos:prefLabel "Conjunction" ;
+  skos:altLabel "conj" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "C"
+  ] ;
+.
+
+hebx:_infinitive_construct
+  rdf:type slo:Converb ;
+  skos:prefLabel "Construct" ;
+  skos:altLabel "const" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "c"
+  ] ;
+
+.
+
+hebx:_demonstrative
+  rdf:type slo:Pronominal ;
+  skos:prefLabel "Demonstrative" ;
+  skos:altLabel "dem" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "d"
+  ] ;
+.
+
+arax:_determined
+  rdf:type slo:Determiner, slo:MorphosyntacticProperty ;
+  skos:prefLabel "Determined" ;
+  skos:altLabel "article" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "d"
+  ] ;
+
+.
+
+hebx:_definite_direct_object
+  rdf:type slo:Determiner, slo:Partical ;
+  skos:prefLabel "Definite direct object marker" ;
+  skos:altLabel "ddo" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "o"
+  ] ;
+.
+
+hebx:_directional_he
+  rdf:type slo:CaseProperty, slo:Suffix ;
+  skos:prefLabel "Directional he" ;
+  skos:altLabel "dir he" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "d"
+  ] ;
+.
+
+hebx:_dual
+  rdf:type slo:NumberProperty ;
+  skos:prefLabel "Dual" ;
+  skos:altLabel "dual" ;
+  rdfs:comment "this should probably be in a dual number" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "d"
+  ] ;
+.
+
+
+hebx:_exhortation
+  rdf:type slo:Particle ;
+  skos:prefLabel "Exhortation" ;
+  skos:altLabel "exh" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "e"
+  ] ;
+.
+
+hebx:_feminine
+  rdf:type slo:GenderProperty ;
+  skos:prefLabel "Feminine" ;
+  skos:altLabel "fem" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "f"
+  ] ;
+.
+
+hebx:_first_person
+  rdf:type slo:PersonProperty ;
+  skos:prefLabel "First Person" ;
+  skos:altLabel "first" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "1"
+  ] ;
+.
+
+hebx:_gentilic
+  rdf:type slo:Noun ;
+  skos:prefLabel "Gentilic" ;
+  skos:altLabel "gentilic" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "g"
+  ] ;
+.
+
+arax:_haphel
+  rdf:type slo:CausativeStem ;
+  skos:prefLabel "Haphel" ;
+  skos:altLabel "haphel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "h"
+  ] ;
+.
+
+hebx:_hiphil
+  rdf:type slo:CausativeStem ;
+  skos:prefLabel "Hiphil" ;
+  skos:altLabel "hiphil" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "h"
+  ] ;
+.
+
+hebx:_hishtaphel
+  rdf:type slo:CtStem ;
+  skos:prefLabel "Hishtaphel" ;
+  skos:altLabel "histaphel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "v"
+  ] ;
+.
+
+arax:_hithpaal
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hithpaal" ;
+  skos:altLabel "hithpaal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "M"
+  ] ;
+.
+
+hebx:_hithpael
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hithpaal" ;
+  skos:altLabel "hithpaal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "t"
+  ] ;
+.
+
+hebx:_hithpalpel
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hithpalpel" ;
+  skos:altLabel "hithpalpel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "f"
+  ] ;
+.
+
+arax:_hithpeel
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hithpeel" ;
+  skos:altLabel "hitpeel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "u"
+  ] ;
+.
+
+hebx:_hithpoel
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hithpoel" ;
+  skos:altLabel "hithpoel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "z"
+  ] ;
+.
+
+hebx:_hithpolel
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hithpolel" ;
+  skos:altLabel "Hithpolel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "r"
+  ] ;
+.
+
+hebx:_hophal
+  rdf:type slo:CpStem ;
+  skos:prefLabel "Hophal" ;
+  skos:altLabel "hophal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "H"
+  ] ;
+.
+
+hebx:_hothpaal
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Hothpaal" ;
+  skos:altLabel "hothpaal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "u"
+  ] ;
+.
+
+hebx:_imperative
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Imperative" ;
+  skos:altLabel "imperative" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "v"
+  ] ;
+.
+
+hebx:_imperfect
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Imperfective" ;
+  skos:altLabel "imperfect" , "yiqtol" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "i"
+  ] ;
+.
+
+hebx:_indefinite_pronoun
+  rdf:type slo:Pronominal ;
+  skos:prefLabel "Indefinite Pronoun" ;
+  skos:altLabel "Pronoun indefinite" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "f"
+  ] ;
+.
+
+hebx:_interjection
+  rdf:type slo:Particle ;
+  skos:prefLabel "Interjection" ;
+  skos:altLabel "interjection" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "j"
+  ] ;
+.
+
+hebx:_interrogative
+  rdf:type slo:Particle ;
+  skos:prefLabel "Interrogative" ;
+  skos:altLabel "interrogative" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "i"
+  ] ;
+.
+
+arax:_ishtaphel
+  rdf:type slo:CtStem ;
+  skos:prefLabel "Ishtaphel" ;
+  skos:altLabel "ishtaphel" ;
+   gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "v"
+  ] ;
+.
+
+arax:_ithpaal
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Ithpaal" ;
+  skos:altLabel "ithpaal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "P"
+  ] ;
+.
+
+arax:_ithpeel
+  rdf:type slo:GtStem ;
+  skos:prefLabel "Ithpeel" ;
+  skos:altLabel "ithpeel" ;
+  gist:isIdentifiedBy [
+      rdf:type gist:ID ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:uniqueText "i"
+  ] ;
+.
+
+arax:_ithpoel
+  rdf:type slo:DtStem ;
+  skos:prefLabel "Ithpoel" ;
+  skos:altLabel "ithpoel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "z" 
+  ] ;
+
+  .
+
+hebx:_jussive
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Jussive" ;
+  skos:altLabel "jussive" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "j" 
+  ] ;
+
+  .
+
+hebx:_masculine
+  rdf:type slo:GenderProperty ;
+  skos:prefLabel "Masculine" ;
+  skos:altLabel "masculine" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "m" 
+  ] ;
+
+  .
+
+hebx:_proper_name
+  rdf:type slo:Noun ;
+  skos:prefLabel "Proper Name" ;
+  skos:altLabel "proper name" ;
+   gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "p" 
+  ] ;
+
+ .
+
+hebx:_negative
+  rdf:type slo:Particle ;
+  skos:prefLabel "Negative" ;
+  skos:altLabel "negative" ;
+   gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "n" 
+  ] ;
+ .
+
+hebx:_niphal
+  rdf:type slo:NStem ;
+  skos:prefLabel "Niphal" ;
+  skos:altLabel "niphal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "N" 
+  ] ;
+.
+
+hebx:_nithpael
+  rdf:type slo:NtStem ;
+  skos:prefLabel "Nithpael" ;
+  skos:altlabel "nithpael" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "D" 
+  ] ;
+.
+
+hebx:_noun
+  rdf:type slo:Noun ;
+  skos:prefLabel "Noun" ;
+  skos:altLabel "Noun" ;
+  rdfs:comment "the OSHB morphology calls this a common noun, but I don't know if we want to specify this more fully" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "N" 
+  ] ;
+.
+
+hebx:_paragogic_nun
+  rdf:type slo:Suffix ;
+  skos:prefLabel "Paragogic Nun" ;
+  skos:altLabel "para nun" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "n" 
+  ] ;
+.
+
+
+arax:_pael
+  rdf:type slo:DoubleStem ;
+  skos:prefLabel "Pael" ;
+  skos:altLabel "pael" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "p" 
+  ] ;
+  .
+
+hebx:_palel
+  rdf:type slo:DoubleStem ;
+  skos:prefLabel "Palel" ;
+  skos:altLabel "palel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "k" 
+  ] ;
+  .
+
+hebx:_active_participle
+  rdf:type slo:Participle ;
+  rdf:type slo:ActiveVoice ;
+  skos:prefLabel "Active Particple" ;
+  skos:altLabel "act ptcp" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "r" 
+  ] ;
+  .
+
+hebx:_particle
+  rdf:type slo:Particle ;
+  skos:prefLabel "Particle" ;
+  skos:altLabel "part" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "T" 
+  ] ;
+.
+
+hebx:_qal_passive
+  rdf:type slo:GpStem ;
+  skos:prefLabel "Qal Passive" ;
+  skos:altLabel "qal pass" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "Q" 
+  ] ;
+.
+
+hebx:_passive_participle
+  rdf:type slo:Participle ;
+  rdf:type slo:PassiveVoice ;
+  skos:prefLabel "Passive Particple" ;
+  skos:altLabel "pass ptcp" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "s" 
+  ] ;
+.
+
+arax:_peal
+  rdf:type slo:GroundStem ;
+  skos:prefLabel "Peal" ;
+  skos:altLabel "peal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "q" 
+  ] ;
+  .
+
+hebx:_pealal
+  rdf:type slo:DoubleStem ;
+  skos:prefLabel "Pealal" ;
+  skos:altLabel "pealal" ;
+   gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "j" 
+  ] ;
+ .
+
+arax:_peil
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Peil" ;
+  skos:altLabel "peil" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "Q" 
+  ] ;
+  .
+
+hebx:_perfective
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Perfective" ;
+  skos:altLabel "perfect" , "suffix conjugation" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "p" 
+  ] ;
+.
+
+hebx:_piel
+  rdf:type slo:DoubleStem ;
+  skos:prefLabel "Piel" ;
+  skos:altLabel "piel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "p" 
+  ] ;
+.
+
+hebx:_pilel
+  rdf:type slo:DoubleStem ;
+  skos:prefLabel "Pilel" ;
+  skos:altLabel "pilel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "i" 
+  ] ;
+  .
+
+hebx:_pilpel
+  rdf:type slo:DoubleStem ;
+  skos:prefLabel "Pilpel" ;
+  skos:altLabel "pilpel" ;
+   gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "l" 
+  ] ;
+ .
+
+hebx:_plural
+  rdf:type slo:NumberProperty ;
+  skos:prefLabel "Plural" ;
+  skos:altLabel "plural" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "p" 
+  ] ;
+.
+
+hebx:_poal
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Poal" ;
+  skos:altLabel "poal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "M" 
+  ] ;
+.
+
+arax:_poel
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Poel" ;
+  skos:altLabel "poel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "m" 
+  ] ;
+  .
+
+hebx:_polal
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Polal" ;
+  skos:altLabel "polal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "O" 
+  ] ;
+.
+
+hebx:_polel
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Polel" ;
+  skos:altLabel "polel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "o" 
+  ] ;
+.
+
+hebx:_polpal
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Polpal" ;
+  skos:altLabel "polpal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "L" 
+  ] ;
+  .
+
+hebx:_preposition
+  rdf:type slo:Adposition ;
+  skos:prefLabel "Preposition" ;
+  skos:altLabel "preposition" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "R" 
+  ] ;
+.
+
+
+hebx:_pronominal_suffix
+  rdf:type slo:Suffix ;
+  skos:prefLabel "Pronominal Suffix" ;
+  skos:altLabel "pronominal suffix" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "p" 
+  ] ;
+.
+
+hebx:_pronoun
+  rdf:type slo:Pronominal ;
+  skos:prefLabel "Pronoun" ;
+  skos:altLabel "pronoun" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "P" 
+  ] ;
+  .
+
+hebx:_pual
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Pual" ;
+  skos:altLabel "pual" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "P" 
+  ] ;
+ .
+
+hebx:_pulal
+  rdf:type slo:DpStem ;
+  skos:prefLabel "Pulal" ;
+  skos:altLabel "pulal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "K" 
+  ] ;
+  .
+
+hebx:_qal
+  rdf:type slo:GroundStem ;
+  skos:prefLabel "Qal" ;
+  skos:altLabel "qal" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "q" 
+  ] ;
+.
+
+hebx:_relative_pronoun
+  rdf:type slo:Pronominal ;
+  skos:prefLabel "Relative Pronoun" ;
+  skos:altLabel "relative pronoun" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "r" 
+  ] ;
+.
+
+hebx:_relative_particle
+  rdf:type slo:Particle ;
+  skos:prefLabel "Relative particle" ;
+  skos:altLabel "relative particle" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "r" 
+  ] ;
+.
+
+arax:_saphel
+  rdf:type slo:CausativeStem ;
+  skos:prefLabel "Saphel" ;
+  skos:altLabel "saphel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "s" 
+  ] ;
+  .
+
+hebx:_second_person
+  rdf:type slo:PersonProperty ;
+  skos:prefLabel "Second Person" ;
+  skos:altLabel "second person" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "2" 
+  ] ;
+.
+
+hebx:_sequential_imperfect
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Sequential Imperfective" ;
+  skos:altLabel "sequential imperfect" , "weyiqtol", "waw-consecutive" ;
+  skos:definition "the waw-consequitive for showing narrative sequence" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "w" 
+  ] ;
+.
+
+hebx:_sequential_perfect
+  rdf:type slo:TenseMoodAspect ;
+  skos:prefLabel "Sequential Perfective" ;
+  skos:altLabel "sequential perfect", "waqatal" ;
+  skos:definition "the waw plus the suffix conjugation in narrative discourse" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "q" 
+  ] ;
+.
+
+arax:_shaphel
+  rdf:type slo:CausativeStem ;
+  skos:prefLabel "Shaphel" ;
+  skos:altLabel "shaphel" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "e" 
+  ] ;
+.
+
+hebx:_singular_person
+  rdf:type slo:PersonProperty ;
+  skos:prefLabel "Singular Person" ;
+  skos:altLabel "singular" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "1" 
+  ] ;
+.
+
+hebx:_suffix
+  rdf:type slo:Suffix ;
+  skos:prefLabel "Suffix" ;
+  skos:altLabel "suffix" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "S" 
+  ] ;
+.
+
+hebx:_third_person
+  rdf:type slo:PersonProperty ;
+  skos:prefLabel "Third Person" ;
+  skos:altLabel "third person" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "3" 
+  ] ;
+
+.
+
+arax:_tiphil
+  rdf:type slo:CausativeStem ;
+  skos:prefLabel "Tiphil" ;
+  skos:altLabel "tiphil" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "c" 
+  ] ;
+.
+
+hebx:_verb
+  rdf:type slo:Verbal ;
+  skos:prefLabel "Verb" ;
+  skos:altLabel "verb" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "V" 
+  ] ;
+.

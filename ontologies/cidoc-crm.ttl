@@ -1,0 +1,1633 @@
+@prefix : <http://www.w3.org/2002/07/owl#> .
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cidoc:E11_Modification
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E7_Activity ;
+  rdfs:label
+    "Bearbeitung"@de ,
+    "Modification"@en ,
+    "Modification"@fr ,
+    "Modificação"@pt ,
+    "Τροποποίηση"@el ,
+    "Событие Изменения"@ru ,
+    "修改"@cn
+    ;
+  rdfs:comment """This class comprises all instances of E7 Activity that create, alter or change E24 Physical Man-Made Thing. 
+This class includes the production of an item from raw materials, and other so far undocumented objects, and the preventive treatment or restoration of an object for conservation. 
+Since the distinction between modification and production is not always clear, modification is regarded as the more generally applicable concept. This implies that some items may be consumed or destroyed in a Modification, and that others may be produced as a result of it. An event should also be documented using E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities. 
+If the instance of the E29 Design or Procedure utilized for the modification prescribes the use of specific materials, they should be documented using property P68 foresees use of (use foreseen by): E57 Material of E29 Design or Procedure, rather than via P126 employed (was employed in): E57 Material.
+"""@en ;
+  .
+
+cidoc:E12_Production
+  a owl:Class ;
+  rdfs:subClassOf
+    cidoc:E11_Modification ,
+    cidoc:E63_Beginning_of_Existence
+    ;
+  rdfs:label
+    "Herstellung"@de ,
+    "Production"@en ,
+    "Production"@fr ,
+    "Produção"@pt ,
+    "Παραγωγή"@el ,
+    "Событие Производства"@ru ,
+    "生产"@cn
+    ;
+  rdfs:comment """This class comprises activities that are designed to, and succeed in, creating one or more new items. 
+It specializes the notion of modification into production. The decision as to whether or not an object is regarded as new is context sensitive. Normally, items are considered “new” if there is no obvious overall similarity between them and the consumed items and material used in their production. In other cases, an item is considered “new” because it becomes relevant to documentation by a modification. For example, the scribbling of a name on a potsherd may make it a voting token. The original potsherd may not be worth documenting, in contrast to the inscribed one. 
+This entity can be collective: the printing of a thousand books, for example, would normally be considered a single event. 
+An event should also be documented using E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities and matter is preserved, but identity is not.
+"""@en ;
+  .
+
+cidoc:E13_Attribute_Assignment
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E7_Activity ;
+  rdfs:label
+    "Affectation d'attribut"@fr ,
+    "Atribuição de Característica"@pt ,
+    "Attribute Assignment"@en ,
+    "Merkmalszuweisung"@de ,
+    "Απόδοση Ιδιοτήτων"@el ,
+    "Присвоение Атрибута"@ru ,
+    "屬性指定"@cn
+    ;
+  rdfs:comment '''This class comprises the actions of making assertions about properties of an object or any relation between two items or concepts. 
+This class allows the documentation of how the respective assignment came about, and whose opinion it was. All the attributes or properties assigned in such an action can also be seen as directly attached to the respective item or concept, possibly as a collection of contradictory values. All cases of properties in this model that are also described indirectly through an action are characterised as "short cuts" of this action. This redundant modelling of two alternative views is preferred because many implementations may have good reasons to model either the action or the short cut, and the relation between both alternatives can be captured by simple rules. 
+In particular, the class describes the actions of people making propositions and statements during certain museum procedures, e.g. the person and date when a condition statement was made, an identifier was assigned, the museum object was measured, etc. Which kinds of such assignments and statements need to be documented explicitly in structures of a schema rather than free text, depends on if this information should be accessible by structured queries. 
+'''@en ;
+  .
+
+cidoc:E18_Physical_Thing
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E72_Legal_Object ;
+  rdfs:label
+    "Chose matérielle"@fr ,
+    "Coisa Material"@pt ,
+    "Materielles"@de ,
+    "Physical Thing"@en ,
+    "Υλικό Πράγμα"@el ,
+    "Физическая Вещь"@ru ,
+    "实体物"@cn
+    ;
+  rdfs:comment """This class comprises all persistent physical items with a relatively stable form, man-made or natural. 
+Depending on the existence of natural boundaries of such things, the CRM distinguishes the instances of E19 Physical Object from instances of E26 Physical Feature, such as holes, rivers, pieces of land etc. Most instances of E19 Physical Object can be moved (if not too heavy), whereas features are integral to the surrounding matter. 
+The CRM is generally not concerned with amounts of matter in fluid or gaseous states. 
+"""@en ;
+  .
+
+cidoc:E1_CRM_Entity
+  a owl:Class ;
+  rdfs:label
+    "CRM Entity"@en ,
+    "CRM Entität"@de ,
+    "CRM Сущность"@ru ,
+    "CRM实体"@cn ,
+    "Entidade CRM"@pt ,
+    "Entité CRM"@fr ,
+    "Οντότητα CIDOC CRM"@el
+    ;
+  rdfs:comment """This class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model. 
+It is an abstract concept providing for three general properties:
+1.	Identification by name or appellation, and in particular by a preferred identifier
+2.	Classification by type, allowing further refinement of the specific subclass an instance belongs to 
+3.	Attachment of free text for the expression of anything not captured by formal properties
+With the exception of E59 Primitive Value, all other classes within the CRM are directly or indirectly specialisations of E1 CRM Entity. 
+"""@en ;
+  .
+
+cidoc:E24_Physical_Man-Made_Thing
+  a owl:Class ;
+  rdfs:subClassOf
+    cidoc:E18_Physical_Thing ,
+    cidoc:E71_Man-Made_Thing
+    ;
+  rdfs:label
+    "Chose matérielle fabriquée"@fr ,
+    "Coisa Material Fabricada"@pt ,
+    "Hergestelltes"@de ,
+    "Physical Man-Made Thing"@en ,
+    "Ανθρωπογενές Υλικό Πράγμα"@el ,
+    "Физическая Рукотворная Вещь"@ru ,
+    "人造实体物"@cn
+    ;
+  rdfs:comment """This class comprises all persistent physical items that are purposely created by human activity.
+This class comprises man-made objects, such as a swords, and man-made features, such as rock art. No assumptions are made as to the extent of modification required to justify regarding an object as man-made. For example, a “cup and ring” carving on bedrock is regarded as instance of E24 Physical Man-Made Thing. 
+"""@en ;
+  .
+
+cidoc:E28_Conceptual_Object
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E71_Man-Made_Thing ;
+  rdfs:label
+    "Begrifflicher Gegenstand"@de ,
+    "Conceptual Object"@en ,
+    "Objet conceptuel"@fr ,
+    "Objeto Conceitual"@pt ,
+    "Νοητικό Αντικείμενο"@el ,
+    "Концептуальный Объект"@ru ,
+    "概念物件"@cn
+    ;
+  rdfs:comment """This class comprises non-material products of our minds and other human produced data that 		have become objects of a discourse about their identity, circumstances of creation or historical 		implication. The production of such information may have been supported by the use of    		technical devices such as cameras or computers.
+Characteristically, instances of this class are created, invented or thought by someone, and then may be documented or communicated between persons. Instances of E28 Conceptual Object have the ability to exist on more than one particular carrier at the same time, such as paper, electronic signals, marks, audio media, paintings, photos, human memories, etc.
+They cannot be destroyed. They exist as long as they can be found on at least one carrier or in at least one human memory. Their existence ends when the last carrier and the last memory are lost. 
+"""@en ;
+  .
+
+cidoc:E2_Temporal_Entity
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E1_CRM_Entity ;
+  rdfs:label
+    "Entidade Temporal"@pt ,
+    "Entité temporelle"@fr ,
+    "Geschehendes"@de ,
+    "Temporal Entity"@en ,
+    "Έγχρονη  Οντότητα"@el ,
+    "Временная Сущность"@ru ,
+    "时间实体"@cn
+    ;
+  rdfs:comment """This class comprises all phenomena, such as the instances of E4 Periods, E5 Events and states, which happen over a limited extent in time. 
+	In some contexts, these are also called perdurants. This class is disjoint from E77 Persistent Item. This is an abstract class and has no direct instances. E2 Temporal Entity is specialized into E4 Period, which applies to a particular geographic area (defined with a greater or lesser degree of precision), and E3 Condition State, which applies to instances of E18 Physical Thing.
+"""@en ;
+  .
+
+cidoc:E30_Right
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E89_Propositional_Object ;
+  rdfs:label
+    "Direitos"@pt ,
+    "Droit"@fr ,
+    "Recht"@de ,
+    "Right"@en ,
+    "Δικαίωμα"@el ,
+    "Право"@ru ,
+    "权限"@cn
+    ;
+  rdfs:comment """This class comprises legal privileges concerning material and immaterial things or their derivatives. 
+These include reproduction and property rights"""@en ;
+  .
+
+cidoc:E39_Actor
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E77_Persistent_Item ;
+  rdfs:label
+    "Actor"@en ,
+    "Agent"@fr ,
+    "Agente"@pt ,
+    "Akteur"@de ,
+    "Δράστης"@el ,
+    "Агент"@ru ,
+    "角色"@cn
+    ;
+  rdfs:comment """This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible. 
+The CRM does not attempt to model the inadvertent actions of such actors. Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group or its subclass E40 Legal Body.
+"""@en ;
+  .
+
+cidoc:E41_Appellation
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E90_Symbolic_Object ;
+  rdfs:label
+    "Appellation"@en ,
+    "Appellation"@fr ,
+    "Benennung"@de ,
+    "Designação"@pt ,
+    "Ονομασία"@el ,
+    "Обозначение"@ru ,
+    "称号"@cn
+    ;
+  rdfs:comment """This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context.
+Instances of E41 Appellation do not identify things by their meaning, even if they happen to have one, but instead by convention, tradition, or agreement. Instances of E41 Appellation are cultural constructs; as such, they have a context, a history, and a use in time and space by some group of users. A given instance of E41 Appellation can have alternative forms, i.e., other instances of E41 Appellation that are always regarded as equivalent independent from the thing it denotes. 
+Specific subclasses of E41 Appellation should be used when instances of E41 Appellation of a characteristic form are used for particular objects. Instances of E49 Time Appellation, for example, which take the form of instances of E50 Date, can be easily recognised.
+E41 Appellation should not be confused with the act of naming something. Cf. E15 Identifier Assignment
+"""@en ;
+  .
+
+cidoc:E4_Period
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E2_Temporal_Entity ;
+  rdfs:label
+    "Period"@en ,
+    "Período"@pt ,
+    "Phase"@de ,
+    "Période"@fr ,
+    "Περίοδος"@el ,
+    "Период"@ru ,
+    "期间"@cn
+    ;
+  rdfs:comment """	This class comprises sets of coherent phenomena or cultural manifestations bounded in time and space. 
+It is the social or physical coherence of these phenomena that identify an E4 Period and not the associated spatio-temporal bounds. These bounds are a mere approximation of the actual process of growth, spread and retreat. Consequently, different periods can overlap and coexist in time and space, such as when a nomadic culture exists in the same area as a sedentary culture. 
+Typically this class is used to describe prehistoric or historic periods such as the “Neolithic Period”, the “Ming Dynasty” or the “McCarthy Era”. There are however no assumptions about the scale of the associated phenomena. In particular all events are seen as synthetic processes consisting of coherent phenomena. Therefore E4 Period is a superclass of E5 Event. For example, a modern clinical E67 Birth can be seen as both an atomic E5 Event and as an E4 Period that consists of multiple activities performed by multiple instances of E39 Actor. 
+There are two different conceptualisations of ‘artistic style’, defined either by physical features or by historical context. For example, “Impressionism” can be viewed as a period lasting from approximately 1870 to 1905 during which paintings with particular characteristics were produced by a group of artists that included (among others) Monet, Renoir, Pissarro, Sisley and Degas. Alternatively, it can be regarded as a style applicable to all paintings sharing the characteristics of the works produced by the Impressionist painters, regardless of historical context. The first interpretation is an E4 Period, and the second defines morphological object types that fall under E55 Type.
+Another specific case of an E4 Period is the set of activities and phenomena associated with a settlement, such as the populated period of Nineveh.
+"""@en ;
+  .
+
+cidoc:E52_Time-Span
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E1_CRM_Entity ;
+  rdfs:label
+    "Durée"@fr ,
+    "Período de Tempo"@pt ,
+    "Time-Span"@en ,
+    "Zeitspanne"@de ,
+    "Χρονικό Διάστημα"@el ,
+    "Интервал Времени"@ru ,
+    "时段"@cn
+    ;
+  rdfs:comment """This class comprises abstract temporal extents, in the sense of Galilean physics, having a beginning, an end and a duration. 
+Time Span has no other semantic connotations. Time-Spans are used to define the temporal extent of instances of E4 Period, E5 Event and any other phenomena valid for a certain time. An E52 Time-Span may be identified by one or more instances of E49 Time Appellation. 
+Since our knowledge of history is imperfect, instances of E52 Time-Span can best be considered as approximations of the actual Time-Spans of temporal entities. The properties of E52 Time-Span are intended to allow these approximations to be expressed precisely.  An extreme case of approximation, might, for example, define an E52 Time-Span having unknown beginning, end and duration. Used as a common E52 Time-Span for two events, it would nevertheless define them as being simultaneous, even if nothing else was known. 
+	Automatic processing and querying of instances of E52 Time-Span is facilitated if data can be parsed into an E61 Time Primitive.
+"""@en ;
+  .
+
+cidoc:E53_Place
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E1_CRM_Entity ;
+  rdfs:label
+    "Lieu"@fr ,
+    "Local"@pt ,
+    "Ort"@de ,
+    "Place"@en ,
+    "Τόπος"@el ,
+    "Место"@ru ,
+    "地点"@cn
+    ;
+  rdfs:comment '''This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter. 
+The instances of E53 Place are usually determined by reference to the position of “immobile” objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.
+ It is sometimes argued that instances of E53 Place are best identified by global coordinates or absolute reference systems. However, relative references are often more relevant in the context of cultural documentation and tend to be more precise. In particular, we are often interested in position in relation to large, mobile objects, such as ships. For example, the Place at which Nelson died is known with reference to a large mobile object – H.M.S Victory. A resolution of this Place in terms of absolute coordinates would require knowledge of the movements of the vessel and the precise time of death, either of which may be revised, and the result would lack historical and cultural relevance.
+Any object can serve as a frame of reference for E53 Place determination. The model foresees the notion of a "section" of an E19 Physical Object as a valid E53 Place determination.'''@en ;
+  .
+
+cidoc:E54_Dimension
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E1_CRM_Entity ;
+  rdfs:label
+    "Dimension"@en ,
+    "Dimensions"@fr ,
+    "Dimensão"@pt ,
+    "Maß"@de ,
+    "Μέγεθος"@el ,
+    "Величина"@ru ,
+    "规模数量"@cn
+    ;
+  rdfs:comment """This class comprises quantifiable properties that can be measured by some calibrated means and can be approximated by values, i.e. points or regions in a mathematical or conceptual space, such as natural or real numbers, RGB values etc.
+An instance of E54 Dimension represents the true quantity, independent from its numerical approximation, e.g. in inches or in cm. The properties of the class E54 Dimension allow for expressing the numerical approximation of the values of an instance of E54 Dimension. If the true values belong to a non-discrete space, such as spatial distances, it is recommended to record them as approximations by intervals or regions of indeterminacy enclosing the assumed true values. For instance, a length of 5 cm may be recorded as 4.5-5.5 cm, according to the precision of the respective observation. Note, that interoperability of values described in different units depends critically on the representation as value regions.
+Numerical approximations in archaic instances of E58 Measurement Unit used in historical records should be preserved. Equivalents corresponding to current knowledge should be recorded as additional instances of E54 Dimension as appropriate.
+"""@en ;
+  .
+
+cidoc:E55_Type
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E28_Conceptual_Object ;
+  rdfs:label
+    "Tipo"@pt ,
+    "Type"@en ,
+    "Type"@fr ,
+    "Typus"@de ,
+    "Τύπος"@el ,
+    "Тип"@ru ,
+    "类型"@cn
+    ;
+  rdfs:comment """This class comprises concepts denoted by terms from thesauri and controlled vocabularies used to characterize and classify instances of CRM classes. Instances of E55 Type represent concepts  in contrast to instances of E41 Appellation which are used to name instances of CRM classes. 
+E55 Type is the CRM’s interface to domain specific ontologies and thesauri. These can be represented in the CRM as subclasses of E55 Type, forming hierarchies of terms, i.e. instances of E55 Type linked via P127 has broader  term (has narrower term). Such hierarchies may be extended with additional properties. 
+"""@en ;
+  .
+
+cidoc:E5_Event
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E4_Period ;
+  rdfs:label
+    "Ereignis"@de ,
+    "Event"@en ,
+    "Evento"@pt ,
+    "Événement"@fr ,
+    "Συμβάν"@el ,
+    "Событие"@ru ,
+    "事件"@cn
+    ;
+  rdfs:comment """This class comprises changes of states in cultural, social or physical systems, regardless of scale, brought about by a series or group of coherent physical, cultural, technological or legal phenomena. Such changes of state will affect instances of E77 Persistent Item or its subclasses.
+The distinction between an E5 Event and an E4 Period is partly a question of the scale of observation. Viewed at a coarse level of detail, an E5 Event is an ‘instantaneous’ change of state. At a fine level, the E5 Event can be analysed into its component phenomena within a space and time frame, and as such can be seen as an E4 Period. The reverse is not necessarily the case: not all instances of E4 Period give rise to a noteworthy change of state.
+"""@en ;
+  .
+
+cidoc:E63_Beginning_of_Existence
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E5_Event ;
+  rdfs:label
+    "Beginning of Existence"@en ,
+    "Daseinsbeginn"@de ,
+    "Début d'existence"@fr ,
+    "Início da Existência"@pt ,
+    "Αρχή Ύπαρξης"@el ,
+    "Начало Существования"@ru ,
+    "存在开始"@cn
+    ;
+  rdfs:comment """This class comprises events that bring into existence any E77 Persistent Item. 
+It may be used for temporal reasoning about things (intellectual products, physical items, groups of people, living beings) beginning to exist; it serves as a hook for determination of a terminus post quem and ante quem. """@en ;
+  .
+
+cidoc:E64_End_of_Existence
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E5_Event ;
+  rdfs:label
+    "Daseinsende"@de ,
+    "End of Existence"@en ,
+    "Fim da Existência"@pt ,
+    "Fin d'existence"@fr ,
+    "Τέλος Ύπαρξης"@el ,
+    "Конец Существования"@ru ,
+    "存在结束"@cn
+    ;
+  rdfs:comment """This class comprises events that end the existence of any E77 Persistent Item. 
+It may be used for temporal reasoning about things (physical items, groups of people, living beings) ceasing to exist; it serves as a hook for determination of a terminus postquem and antequem. In cases where substance from a Persistent Item continues to exist in a new form, the process would be documented by E81 Transformation.
+"""@en ;
+  .
+
+cidoc:E65_Creation
+  a owl:Class ;
+  rdfs:subClassOf
+    cidoc:E63_Beginning_of_Existence ,
+    cidoc:E7_Activity
+    ;
+  rdfs:label
+    "Begriffliche Schöpfung"@de ,
+    "Creation"@en ,
+    "Criação"@pt ,
+    "Création"@fr ,
+    "Δημιουργία"@el ,
+    "Событие Творения"@ru ,
+    "创造"@cn
+    ;
+  rdfs:comment """This class comprises events that result in the creation of conceptual items or immaterial products, such as legends, poems, texts, music, images, movies, laws, types etc.
+"""@en ;
+  .
+
+cidoc:E70_Thing
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E77_Persistent_Item ;
+  rdfs:label
+    ""@ru ,
+    "Chose"@fr ,
+    "Coisa"@pt ,
+    "Sache"@de ,
+    "Thing"@en ,
+    "Πράγμα"@el ,
+    "万物"@cn
+    ;
+  rdfs:comment """This general class comprises usable discrete, identifiable, instances of E77 Persistent Item that are documented as single units. 
+
+They can be either intellectual products or physical things, and are characterized by relative stability. They may for instance either have a solid physical form, an electronic encoding, or they may be logical concept or structure. 
+"""@en ;
+  .
+
+cidoc:E71_Man-Made_Thing
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E70_Thing ;
+  rdfs:label
+    "Chose fabriquée"@fr ,
+    "Coisa Fabricada"@pt ,
+    "Künstliches"@de ,
+    "Man-Made Thing"@en ,
+    "Ανθρώπινο Δημιούργημα"@el ,
+    "Рукотворная Вещь"@ru ,
+    "人造物"@cn
+    ;
+  rdfs:comment """This class comprises discrete, identifiable man-made items that are documented as single units. 
+These items are either intellectual products or man-made physical things, and are characterized by relative stability. They may for instance have a solid physical form, an electronic encoding, or they may be logical concepts or structures.
+"""@en ;
+  .
+
+cidoc:E72_Legal_Object
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E70_Thing ;
+  rdfs:label
+    "Legal Object"@en ,
+    "Objet juridique"@fr ,
+    "Objeto Jurídico"@pt ,
+    "Rechtsobjekt"@de ,
+    "Νομικό Αντικείμενο"@el ,
+    "Объект Права"@ru ,
+    "法律物件"@cn
+    ;
+  rdfs:comment """This class comprises those material or immaterial items to which instances of E30 Right, such as the right of ownership or use, can be applied. 
+This is true for all E18 Physical Thing. In the case of instances of E28 Conceptual Object, however, the identity of the E28 Conceptual Object or the method of its use may be too ambiguous to reliably establish instances of E30 Right, as in the case of taxa and inspirations. Ownership of corporations is currently regarded as out of scope of the CRM. 
+"""@en ;
+  .
+
+cidoc:E73_Information_Object
+  a owl:Class ;
+  rdfs:subClassOf
+    cidoc:E89_Propositional_Object ,
+    cidoc:E90_Symbolic_Object
+    ;
+  rdfs:label
+    "Information Object"@en ,
+    "Informationsgegenstand"@de ,
+    "Objet d'information"@fr ,
+    "Objeto de Informação"@pt ,
+    "Πληροφοριακό Αντικείμενο"@el ,
+    "Информационный Объект"@ru ,
+    "信息物件"@cn
+    ;
+  rdfs:comment """This class comprises identifiable immaterial items, such as a poems, jokes, data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units. 
+An E73 Information Object does not depend on a specific physical carrier, which can include human memory, and it can exist on one or more carriers simultaneously.
+Instances of E73 Information Object of a linguistic nature should be declared as instances of the E33 Linguistic Object subclass. Instances of E73 Information Object of a documentary nature should be declared as instances of the E31 Document subclass. Conceptual items such as types and classes are not instances of E73 Information Object, nor are ideas without a reproducible expression. 
+"""@en ;
+  .
+
+cidoc:E74_Group
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E39_Actor ;
+  rdfs:label
+    "Group"@en ,
+    "Groupe"@fr ,
+    "Grupo"@pt ,
+    "Menschliche Gruppe"@de ,
+    "Ομάδα"@el ,
+    "Группа"@ru ,
+    "群组"@cn
+    ;
+  rdfs:comment """This class comprises any gatherings or organizations of two or more people that act collectively or in a similar way due to any form of unifying relationship. In the wider sense this class also comprises official positions which used to be regarded in certain contexts as one actor, independent of the current holder of the office, such as the president of a country. 
+A gathering of people becomes an E74 Group when it exhibits organizational characteristics usually typified by a set of ideas or beliefs held in common, or actions performed together. These might be communication, creating some common artifact, a common purpose such as study, worship, business, sports, etc. Nationality can be modeled as membership in an E74 Group (cf. HumanML markup). Married couples and other concepts of family are regarded as particular examples of E74 Group.
+"""@en ;
+  .
+
+cidoc:E77_Persistent_Item
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E1_CRM_Entity ;
+  rdfs:label
+    "Entidade Persistente"@pt ,
+    "Entité persistante"@fr ,
+    "Persistent Item"@en ,
+    "Seiendes"@de ,
+    "Ον"@el ,
+    "Постоянная Сущность"@ru ,
+    "持续性项目"@cn
+    ;
+  rdfs:comment """This class comprises items that have a persistent identity, sometimes known as “endurants” in philosophy. 
+They can be repeatedly recognized within the duration of their existence by identity criteria rather than by continuity or observation. Persistent Items can be either physical entities, such as people, animals or things, or conceptual entities such as ideas, concepts, products of the imagination or common names.
+The criteria that determine the identity of an item are often difficult to establish -; the decision depends largely on the judgement of the observer. For example, a building is regarded as no longer existing if it is dismantled and the materials reused in a different configuration. On the other hand, human beings go through radical and profound changes during their life-span, affecting both material composition and form, yet preserve their identity by other criteria. Similarly, inanimate objects may be subject to exchange of parts and matter. The class E77 Persistent Item does not take any position about the nature of the applicable identity criteria and if actual knowledge about identity of an instance of this class exists. There may be cases, where the identity of an E77 Persistent Item is not decidable by a certain state of knowledge.
+The main classes of objects that fall outside the scope the E77 Persistent Item class are temporal objects such as periods, events and acts, and descriptive properties. """@en ;
+  .
+
+cidoc:E7_Activity
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E5_Event ;
+  rdfs:label
+    "Activity"@en ,
+    "Activité"@fr ,
+    "Atividade"@pt ,
+    "Handlung"@de ,
+    "Δράση"@el ,
+    "Деятельность"@ru ,
+    "活动"@cn
+    ;
+  rdfs:comment """This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented. 
+This notion includes complex, composite and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door.
+"""@en ;
+  .
+
+cidoc:E89_Propositional_Object
+  a owl:Class ;
+  rdfs:subClassOf cidoc:E28_Conceptual_Object ;
+  rdfs:label
+    "Aussagenobjekt"@de ,
+    "Propositional Object"@en ,
+    "陈述性物件"@cn
+    ;
+  rdfs:comment """This class comprises immaterial items, including but not limited to stories, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topics of discourse. 
+	
+This class also comprises items that are “about” something in the sense of a subject. In the wider sense, this class includes expressions of psychological value such as non-figural art and musical themes. However, conceptual items such as types and classes are not instances of E89 Propositional Object. This should not be confused with the definition of a type, which is indeed an instance of E89 Propositional Object.
+"""@en ;
+  .
+
+cidoc:E90_Symbolic_Object
+  a owl:Class ;
+  rdfs:subClassOf
+    cidoc:E28_Conceptual_Object ,
+    cidoc:E72_Legal_Object
+    ;
+  rdfs:label
+    "Symbolic Object"@en ,
+    "Symbolisches Objekt"@de ,
+    "符号物件"@cn
+    ;
+  rdfs:comment """This class comprises identifiable symbols and any aggregation of symbols, such as characters, identifiers, traffic signs, emblems, texts, data sets, images, musical scores, multimedia objects, computer program code or mathematical formulae that have an objectively recognizable structure and that are documented as single units.
+	It includes sets of signs of any nature, which may serve to designate something, or to communicate some propositional content.
+	An instance of E90 Symbolic Object does not depend on a specific physical carrier, which can include human memory, and it can exist on one or more carriers simultaneously. An instance of E90 Symbolic Object may or may not have a specific meaning, for example an arbitrary character string.
+	In some cases, the content of an instance of E90 Symbolic Object may completely be represented by a serialized content model, such.. as the property P3 has note allows for describing this content model…P3.1 has type: E55 Type to specify the encoding..
+"""@en ;
+  .
+
+cidoc:P104_is_subject_to
+  a owl:ObjectProperty ;
+  rdfs:label
+    "Gegenstand von"@de ,
+    "est sujet à"@fr ,
+    "está sujeito à"@pt ,
+    "is subject to"@en ,
+    "υπόκειται σε"@el ,
+    "является объектом для"@ru ,
+    "受制於"@cn
+    ;
+  rdfs:comment """This property links a particular E72 Legal Object to the instances of E30 Right to which it is subject.
+The Right is held by an E39 Actor as described by P75 possesses (is possessed by).
+"""@en ;
+  rdfs:domain cidoc:E72_Legal_Object ;
+  rdfs:range cidoc:E30_Right ;
+  .
+
+cidoc:P104i_applies_to
+  a owl:ObjectProperty ;
+  rdfs:label
+    "applies to"@en ,
+    "findet Anwendung auf"@de ,
+    "se aplicam à"@pt ,
+    "s’applique à"@fr ,
+    "ισχύει για"@el ,
+    "применяется к"@ru ,
+    "被应用於"@cn
+    ;
+  rdfs:domain cidoc:E30_Right ;
+  rdfs:range cidoc:E72_Legal_Object ;
+  .
+
+cidoc:P106_is_composed_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    " ist zusammengesetzt aus"@de ,
+    "est composé de"@fr ,
+    "is composed of"@en ,
+    "é composto de"@pt ,
+    "αποτελείται από"@el ,
+    "составлен из"@ru ,
+    "有组成元素"@cn
+    ;
+  rdfs:comment """This property associates an instance of E90 Symbolic Object with a part of it that is by itself an instance of E90 Symbolic Object, such as fragments of texts or clippings from an image.
+"""@en ;
+  rdfs:domain cidoc:E90_Symbolic_Object ;
+  rdfs:range cidoc:E90_Symbolic_Object ;
+  .
+
+cidoc:P106i_forms_part_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "bildet Teil von"@de ,
+    "fait partie de"@fr ,
+    "faz parte de"@pt ,
+    "forms part of"@en ,
+    "αποτελεί μέρος του/της"@el ,
+    "формирует часть"@ru ,
+    "组成了"@cn
+    ;
+  rdfs:domain cidoc:E90_Symbolic_Object ;
+  rdfs:range cidoc:E90_Symbolic_Object ;
+  .
+
+cidoc:P107_has_current_or_former_member
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a pour membre actuel ou ancien"@fr ,
+    "has current or former member"@en ,
+    "hat derzeitiges oder früheres Mitglied"@de ,
+    "tem ou teve membro"@pt ,
+    "έχει ή είχε μέλος"@el ,
+    "имеет действующего или бывшего члена"@ru ,
+    "有现任或前任成员"@cn
+    ;
+  rdfs:comment """This property relates an E39 Actor to the E74 Group of which that E39 Actor is a member.
+Groups, Legal Bodies and Persons, may all be members of Groups. A Group necessarily consists of more than one member.
+This property is a shortcut of the more fully developed path from E74 Group through P144 joined with (gained member by), E85 Joining, P143 joined (was joined by) to E39 Actor
+The property P107.1 kind of member can be used to specify the type of membership or the role the member has in the group. 
+"""@en ;
+  rdfs:domain cidoc:E74_Group ;
+  rdfs:range cidoc:E39_Actor ;
+  .
+
+cidoc:P107i_is_current_or_former_member_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est actuel ou ancien membre de"@fr ,
+    "is current or former member of"@en ,
+    "ist derzeitiges oder früheres Mitglied von"@de ,
+    "é ou foi membro de"@pt ,
+    "είναι ή ήταν μέλος του/της"@el ,
+    "является действующим или бывшим членом"@ru ,
+    "目前或曾经加入群组"@cn
+    ;
+  rdfs:domain cidoc:E39_Actor ;
+  rdfs:range cidoc:E74_Group ;
+  .
+
+cidoc:P108_has_produced
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf
+    cidoc:P31_has_modified ,
+    cidoc:P92_brought_into_existence
+    ;
+  rdfs:label
+    "a produit"@fr ,
+    "has produced"@en ,
+    "hat hergestellt"@de ,
+    "produziu"@pt ,
+    "παρήγαγε"@el ,
+    "произвел"@ru ,
+    "有产出物"@cn
+    ;
+  rdfs:comment """This property identifies the E24 Physical Man-Made Thing that came into existence as a result of an E12 Production.
+The identity of an instance of E24 Physical Man-Made Thing is not defined by its matter, but by its existence as a subject of documentation. An E12 Production can result in the creation of multiple instances of E24 Physical Man-Made Thing.
+"""@en ;
+  rdfs:domain cidoc:E12_Production ;
+  rdfs:range cidoc:E24_Physical_Man-Made_Thing ;
+  .
+
+cidoc:P108i_was_produced_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf
+    cidoc:P31i_was_modified_by ,
+    cidoc:P92i_was_brought_into_existence_by
+    ;
+  rdfs:label
+    "a été produit par"@fr ,
+    "foi produzido por"@pt ,
+    "was produced by"@en ,
+    "wurde hergestellt durch"@de ,
+    "παρήχθη από"@el ,
+    "был произведен посредством"@ru ,
+    "被制作於"@cn
+    ;
+  rdfs:domain cidoc:E24_Physical_Man-Made_Thing ;
+  rdfs:range cidoc:E12_Production ;
+  .
+
+cidoc:P10_falls_within
+  a owl:ObjectProperty ;
+  rdfs:label
+    "está contido em"@pt ,
+    "falls within"@en ,
+    "fällt in"@de ,
+    "s’insère dans le cours de"@fr ,
+    "εμπίπτει"@el ,
+    "находится в пределах"@ru ,
+    "发生时间涵盖於"@cn
+    ;
+  rdfs:comment """This property describes an instance of E4 Period, which falls within the E53 Place and E52 Time-Span of another. 
+The difference with P9 consists of (forms part of) is subtle. Unlike P9 consists of (forms part of), P10 falls within (contains) does not imply any logical connection between the two periods and it may refer to a period of a completely different type.
+"""@en ;
+  rdfs:domain cidoc:E4_Period ;
+  rdfs:range cidoc:E4_Period ;
+  .
+
+cidoc:P10i_contains
+  a owl:ObjectProperty ;
+  rdfs:label
+    "contains"@en ,
+    "contient"@fr ,
+    "contém"@pt ,
+    "enthält"@de ,
+    "περιλαμβάνει"@el ,
+    "содержит"@ru ,
+    "时间上涵盖"@cn
+    ;
+  rdfs:domain cidoc:E4_Period ;
+  rdfs:range cidoc:E4_Period ;
+  .
+
+cidoc:P11_had_participant
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12_occurred_in_the_presence_of ;
+  rdfs:label
+    "a eu pour participant"@fr ,
+    "had participant"@en ,
+    "hatte Teilnehmer"@de ,
+    "tem participante"@pt ,
+    "είχε συμμέτοχο"@el ,
+    "имел участника"@ru ,
+    "有参与者"@cn
+    ;
+  rdfs:comment """This property describes the active or passive participation of instances of E39 Actors in an E5 Event. 
+It connects the life-line of the related E39 Actor with the E53 Place and E50 Date of the event. The property implies that the Actor was involved in the event but does not imply any causal relationship. The subject of a portrait can be said to have participated in the creation of the portrait.
+"""@en ;
+  rdfs:domain cidoc:E5_Event ;
+  rdfs:range cidoc:E39_Actor ;
+  .
+
+cidoc:P11i_participated_in
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12i_was_present_at ;
+  rdfs:label
+    "a participé à"@fr ,
+    "nahm Teil an"@de ,
+    "participa em"@pt ,
+    "participated in"@en ,
+    "συμμετείχε σε"@el ,
+    "участвовал в"@ru ,
+    "参与了"@cn
+    ;
+  rdfs:domain cidoc:E39_Actor ;
+  rdfs:range cidoc:E5_Event ;
+  .
+
+cidoc:P127_has_broader_term
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a pour terme générique"@fr ,
+    "has broader term"@en ,
+    "hat den Oberbegriff"@de ,
+    "tem termo genérico"@pt ,
+    "έχει ευρύτερο όρο"@el ,
+    "имеет вышестоящий термин"@ru ,
+    "有广义术语"@cn
+    ;
+  rdfs:comment '''This property identifies a super-Type to which an E55 Type is related. 
+		It allows Types to be organised into hierarchies. This is the sense of "broader term generic  		(BTG)" as defined in ISO 2788
+'''@en ;
+  rdfs:domain cidoc:E55_Type ;
+  rdfs:range cidoc:E55_Type ;
+  .
+
+cidoc:P127i_has_narrower_term
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a pour terme spécifique"@fr ,
+    "has narrower term"@en ,
+    "hat den Unterbegriff"@de ,
+    "tem termo específico"@pt ,
+    "έχει στενότερο όρο"@el ,
+    "有狭义术语"@cn
+    ;
+  rdfs:domain cidoc:E55_Type ;
+  rdfs:range cidoc:E55_Type ;
+  .
+
+cidoc:P128_carries
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P130_shows_features_of ;
+  rdfs:label
+    "carries"@en ,
+    "est le support de"@fr ,
+    "trägt"@de ,
+    "é o suporte de"@pt ,
+    "φέρει"@el ,
+    "несет"@ru ,
+    "承载信息"@cn
+    ;
+  rdfs:comment """This property identifies an E90 Symbolic Object carried by an instance of E24 Physical Man-Made Thing.
+In general this would be an E84 Information Carrier P65 shows visual item (is shown by) is a specialisation of P128 carries (is carried by) which should be used for carrying visual items.
+"""@en ;
+  rdfs:domain cidoc:E24_Physical_Man-Made_Thing ;
+  rdfs:range cidoc:E90_Symbolic_Object ;
+  .
+
+cidoc:P128i_is_carried_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P130i_features_are_also_found_on ;
+  rdfs:label
+    "a pour support"@fr ,
+    "is carried by"@en ,
+    "wird getragen von"@de ,
+    "é suportado por"@pt ,
+    "φέρεται από"@el ,
+    "переносится посредством"@ru ,
+    "被承载于"@cn
+    ;
+  rdfs:domain cidoc:E90_Symbolic_Object ;
+  rdfs:range cidoc:E24_Physical_Man-Made_Thing ;
+  .
+
+cidoc:P12_occurred_in_the_presence_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est arrivé en présence de"@fr ,
+    "fand statt im Beisein von"@de ,
+    "occurred in the presence of"@en ,
+    "ocorreu na presença de"@pt ,
+    "συνέβη παρουσία του/της"@el ,
+    "появился в присутствии"@ru ,
+    "发生现场存在"@cn
+    ;
+  rdfs:comment """This property describes the active or passive presence of an E77 Persistent Item in an E5 Event without implying any specific role. 
+It connects the history of a thing with the E53 Place and E50 Date of an event. For example, an object may be the desk, now in a museum on which a treaty was signed. The presence of an immaterial thing implies the presence of at least one of its carriers.
+"""@en ;
+  rdfs:domain cidoc:E5_Event ;
+  rdfs:range cidoc:E77_Persistent_Item ;
+  .
+
+cidoc:P12i_was_present_at
+  a owl:ObjectProperty ;
+  rdfs:label
+    "estava presente no"@pt ,
+    "war anwesend bei"@de ,
+    "was present at"@en ,
+    "était présent à"@fr ,
+    "ήταν παρών/παρούσα/παρόν σε"@el ,
+    "присутствовал при"@ru ,
+    "当时在场於"@cn
+    ;
+  rdfs:domain cidoc:E77_Persistent_Item ;
+  rdfs:range cidoc:E5_Event ;
+  .
+
+cidoc:P130_shows_features_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "apresenta características de"@pt ,
+    "présente des caractéristiques de"@fr ,
+    "shows features of"@en ,
+    "zeigt Merkmale von"@de ,
+    "παρουσιάζει χαρακτηριστικά του/της"@el ,
+    "демонстрирует признаки"@ru ,
+    "外观特征原出现於"@cn
+    ;
+  rdfs:comment '''This property generalises the notions of  "copy of" and "similar to" into a dynamic, asymmetric relationship, where the domain expresses the derivative, if such a direction can be established.
+Otherwise, the relationship is symmetric. It is a short-cut of P15 was influenced by (influenced) in a creation or production, if such a reason for the similarity can be verified. Moreover it expresses similarity in cases that can be stated between two objects only, without historical knowledge about its reasons.
+'''@en ;
+  rdfs:domain cidoc:E70_Thing ;
+  rdfs:range cidoc:E70_Thing ;
+  .
+
+cidoc:P130i_features_are_also_found_on
+  a owl:ObjectProperty ;
+  rdfs:label
+    "Merkmale auch auf"@de ,
+    "a des caractéristiques se trouvant aussi sur"@fr ,
+    "características são também encontradas em"@pt ,
+    "features are also found on"@en ,
+    "χαρακτηριστικά του βρίσκονται επίσης σε"@el ,
+    "признаки также найдены на"@ru ,
+    "外观特征被复制於"@cn
+    ;
+  rdfs:domain cidoc:E70_Thing ;
+  rdfs:range cidoc:E70_Thing ;
+  .
+
+cidoc:P140_assigned_attribute_to
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a affecté un attribut à"@fr ,
+    "assigned attribute to"@en ,
+    "atribuiu atributo para"@pt ,
+    "wies Merkmal zu"@de ,
+    "απέδωσε ιδιότητα σε"@el ,
+    "присвоил атрибут для"@ru ,
+    "指定属性给"@cn
+    ;
+  rdfs:comment "This property indicates the item to which an attribute or relation is assigned. "@en ;
+  rdfs:domain cidoc:E13_Attribute_Assignment ;
+  rdfs:range cidoc:E1_CRM_Entity ;
+  .
+
+cidoc:P140i_was_attributed_by
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a reçu un attribut par"@fr ,
+    "bekam Merkmal zugewiesen durch"@de ,
+    "foi atribuído por"@pt ,
+    "was attributed by"@en ,
+    "χαρακτηρίστηκε από"@el ,
+    "получил атрибут посредством"@ru ,
+    "被指定属性於"@cn
+    ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range cidoc:E13_Attribute_Assignment ;
+  .
+
+cidoc:P141_assigned
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a attribué"@fr ,
+    "assigned"@en ,
+    "atribuiu"@pt ,
+    "wies zu"@de ,
+    "απέδωσε"@el ,
+    "присвоил"@ru ,
+    "指定了属性值"@cn
+    ;
+  rdfs:comment """This property indicates the attribute that was assigned or the item that was related to the item denoted by a property P140 assigned attribute to in an Attribute assignment action.
+"""@en ;
+  rdfs:domain cidoc:E13_Attribute_Assignment ;
+  rdfs:range cidoc:E1_CRM_Entity ;
+  .
+
+cidoc:P141i_was_assigned_by
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a été attribué par"@fr ,
+    "foi atribuído por"@pt ,
+    "was assigned by"@en ,
+    "wurde zugewiesen durch"@de ,
+    "αποδόθηκε από"@el ,
+    "был присвоен посредством"@ru ,
+    "被指定了属性值於"@cn
+    ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range cidoc:E13_Attribute_Assignment ;
+  .
+
+cidoc:P148_has_component
+  a owl:ObjectProperty ;
+  rdfs:label
+    "has component"@en ,
+    "hat Bestandteil"@de ,
+    "有组件"@cn
+    ;
+  rdfs:comment "This property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object."@en ;
+  rdfs:domain cidoc:E89_Propositional_Object ;
+  rdfs:range cidoc:E89_Propositional_Object ;
+  .
+
+cidoc:P148i_is_component_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "is component of"@en ,
+    "ist Bestandteil von"@de ,
+    "被用来组成"@cn
+    ;
+  rdfs:domain cidoc:E89_Propositional_Object ;
+  rdfs:range cidoc:E89_Propositional_Object ;
+  .
+
+cidoc:P14_carried_out_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P11_had_participant ;
+  rdfs:label
+    "carried out by"@en ,
+    "realizada por"@pt ,
+    "réalisée par"@fr ,
+    "wurde ausgeführt von"@de ,
+    "πραγματοποιήθηκε από"@el ,
+    "выполнялся"@ru ,
+    "有执行者"@cn
+    ;
+  rdfs:comment """This property describes the active participation of an E39 Actor in an E7 Activity. 
+It implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor’s participation to be specified.
+"""@en ;
+  rdfs:domain cidoc:E7_Activity ;
+  rdfs:range cidoc:E39_Actor ;
+  .
+
+cidoc:P14i_performed
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P11i_participated_in ;
+  rdfs:label
+    "a exécuté"@fr ,
+    "executou"@pt ,
+    "führte aus"@de ,
+    "performed"@en ,
+    "πραγματοποίησε"@el ,
+    "выполнял"@ru ,
+    "执行了"@cn
+    ;
+  rdfs:domain cidoc:E39_Actor ;
+  rdfs:range cidoc:E7_Activity ;
+  .
+
+cidoc:P15_was_influenced_by
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a été influencée par"@fr ,
+    "foi influenciado por "@pt ,
+    "was influenced by"@en ,
+    "wurde beeinflußt durch"@de ,
+    "επηρεάστηκε από"@el ,
+    "находился под влиянием"@ru ,
+    "有影响事物"@cn
+    ;
+  rdfs:comment """This is a high level property, which captures the relationship between an E7 Activity and anything that may have had some bearing upon it.
+The property has more specific sub properties.
+"""@en ;
+  rdfs:domain cidoc:E7_Activity ;
+  rdfs:range cidoc:E1_CRM_Entity ;
+  .
+
+cidoc:P15i_influenced
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a influencé"@fr ,
+    "beeinflußte"@de ,
+    "influenced"@en ,
+    "influenciou"@pt ,
+    "επηρέασε"@el ,
+    "оказал влияние на"@ru ,
+    "影响了"@cn
+    ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range cidoc:E7_Activity ;
+  .
+
+cidoc:P16_used_specific_object
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf
+    cidoc:P12_occurred_in_the_presence_of ,
+    cidoc:P15_was_influenced_by
+    ;
+  rdfs:label
+    "a utilisé l'objet spécifique"@fr ,
+    "benutzte das bestimmte Objekt"@de ,
+    "used specific object"@en ,
+    "usou objeto específico"@pt ,
+    "χρησιμοποίησε αντικείμενο"@el ,
+    "использовал особый объект"@ru ,
+    "使用特定物"@cn
+    ;
+  rdfs:comment """This property describes the use of material or immaterial things in a way essential to the performance or the outcome of an E7 Activity. 
+This property typically applies to tools, instruments, moulds, raw materials and items embedded in a product. It implies that the presence of the object in question was a necessary condition for the action. For example, the activity of writing this text required the use of a computer. An immaterial thing can be used if at least one of its carriers is present. For example, the software tools on a computer.
+Another example is the use of a particular name by a particular group of people over some span to identify a thing, such as a settlement. In this case, the physical carriers of this name are at least the people understanding its use.
+"""@en ;
+  rdfs:domain cidoc:E7_Activity ;
+  rdfs:range cidoc:E70_Thing ;
+  .
+
+cidoc:P16i_was_used_for
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf
+    cidoc:P12i_was_present_at ,
+    cidoc:P15i_influenced
+    ;
+  rdfs:label
+    "a été utilisé pour"@fr ,
+    "foi usado por"@pt ,
+    "was used for"@en ,
+    "wurde benutzt für"@de ,
+    "χρησιμοποιήθηκε για"@el ,
+    "был использован для"@ru ,
+    "被用於"@cn
+    ;
+  rdfs:domain cidoc:E70_Thing ;
+  rdfs:range cidoc:E7_Activity ;
+  .
+
+cidoc:P1_is_identified_by
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est identifiée par"@fr ,
+    "is identified by"@en ,
+    "wird bezeichnet als"@de ,
+    "é identificado por"@pt ,
+    "αναγνωρίζεται ως"@el ,
+    "идентифицируется посредством"@ru ,
+    "有识别称号"@cn
+    ;
+  rdfs:comment """This property describes the naming or identification of any real world item by a name or any other identifier. 
+This property is intended for identifiers in general use, which form part of the world the model intends to describe, and not merely for internal database identifiers which are specific to a technical system, unless these latter also have a more general use outside the technical context. This property includes in particular identification by mathematical expressions such as coordinate systems used for the identification of instances of E53 Place. The property does not reveal anything about when, where and by whom this identifier was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through E15 Identifier Assignment.
+"""@en ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range cidoc:E41_Appellation ;
+  .
+
+cidoc:P1i_identifies
+  a owl:ObjectProperty ;
+  rdfs:label
+    "bezeichnet"@de ,
+    "identifica"@pt ,
+    "identifie"@fr ,
+    "identifies"@en ,
+    "είναι αναγνωριστικό"@el ,
+    "идентифицирует"@ru ,
+    "被用来识别"@cn
+    ;
+  rdfs:domain cidoc:E41_Appellation ;
+  rdfs:range cidoc:E1_CRM_Entity ;
+  .
+
+cidoc:P20_had_specific_purpose
+  a owl:ObjectProperty ;
+  rdfs:label
+    "avait pour but spécifique"@fr ,
+    "had specific purpose"@en ,
+    "hatte den bestimmten Zweck"@de ,
+    "tinha propósito específico"@pt ,
+    "είχε συγκεκριμένο σκοπό"@el ,
+    "имел конкретную цель"@ru ,
+    "有特定目地"@cn
+    ;
+  rdfs:comment """This property identifies the relationship between a preparatory activity and the event it is intended to be preparation for.
+This includes activities, orders and other organisational actions, taken in preparation for other activities or events. 
+P20 had specific purpose (was purpose of) implies that an activity succeeded in achieving its aim. If it does not succeed, such as the setting of a trap that did not catch anything, one may document the unrealized intention using P21 had general purpose (was purpose of):E55 Type and/or  P33 used specific technique (was used by): E29 Design or Procedure."""@en ;
+  rdfs:domain cidoc:E7_Activity ;
+  rdfs:range cidoc:E5_Event ;
+  .
+
+cidoc:P20i_was_purpose_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "era o propósito de"@pt ,
+    "war Zweck von"@de ,
+    "was purpose of"@en ,
+    "était le but de"@fr ,
+    "ήταν σκοπός του/της"@el ,
+    "был целью для"@ru ,
+    "之準備活動是"@cn
+    ;
+  rdfs:domain cidoc:E5_Event ;
+  rdfs:range cidoc:E7_Activity ;
+  .
+
+cidoc:P2_has_type
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est de type"@fr ,
+    "has type"@en ,
+    "hat den Typus"@de ,
+    "é do tipo"@pt ,
+    "έχει τύπο"@el ,
+    "имеет тип"@ru ,
+    "有类型"@cn
+    ;
+  rdfs:comment """This property allows sub typing of CRM entities - a form of specialisation – through the use of a terminological hierarchy, or thesaurus. 
+The CRM is intended to focus on the high-level entities and relationships needed to describe data structures. Consequently, it does not specialise entities any further than is required for this immediate purpose. However, entities in the isA hierarchy of the CRM may by specialised into any number of sub entities, which can be defined in the E55 Type hierarchy. E51 Contact Point, for example, may be specialised into “e-mail address”, “telephone number”, “post office box”, “URL” etc. none of which figures explicitly in the CRM hierarchy. Sub typing obviously requires consistency between the meaning of the terms assigned and the more general intent of the CRM entity in question.
+"""@en ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range cidoc:E55_Type ;
+  .
+
+cidoc:P2i_is_type_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est le type de"@fr ,
+    "is type of"@en ,
+    "ist Typus von"@de ,
+    "é o tipo de"@pt ,
+    "είναι ο τύπος του/της"@el ,
+    "является типом для"@ru ,
+    "被用来分类"@cn
+    ;
+  rdfs:domain cidoc:E55_Type ;
+  rdfs:range cidoc:E1_CRM_Entity ;
+  .
+
+cidoc:P31_has_modified
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12_occurred_in_the_presence_of ;
+  rdfs:label
+    "a modifié"@fr ,
+    "has modified"@en ,
+    "modificou"@pt ,
+    "veränderte"@de ,
+    "τροποποίησε"@el ,
+    "изменил"@ru ,
+    "修改了"@cn
+    ;
+  rdfs:comment """This property identifies the E24 Physical Man-Made Thing modified in an E11 Modification.
+If a modification is applied to a non-man-made object, it is regarded as an E22 Man-Made Object from that time onwards. 
+"""@en ;
+  rdfs:domain cidoc:E11_Modification ;
+  rdfs:range cidoc:E24_Physical_Man-Made_Thing ;
+  .
+
+cidoc:P31i_was_modified_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12i_was_present_at ;
+  rdfs:label
+    "a été modifié par"@fr ,
+    "foi modificada por"@pt ,
+    "was modified by"@en ,
+    "wurde verändert durch"@de ,
+    "τροποποιήθηκε από"@el ,
+    "был изменен посредством"@ru ,
+    "被修改於"@cn
+    ;
+  rdfs:domain cidoc:E24_Physical_Man-Made_Thing ;
+  rdfs:range cidoc:E11_Modification ;
+  .
+
+cidoc:P3_has_note
+  a owl:DatatypeProperty ;
+  rdfs:label
+    "a pour note"@fr ,
+    "has note"@en ,
+    "hat Anmerkung"@de ,
+    "tem nota"@pt ,
+    "έχει επεξήγηση"@el ,
+    "имеет примечание"@ru ,
+    "有说明"@cn
+    ;
+  rdfs:comment """This property is a container for all informal descriptions about an object that have not been expressed in terms of CRM constructs. 
+In particular it captures the characterisation of the item itself, its internal structures, appearance etc.
+Like property P2 has type (is type of), this property is a consequence of the restricted focus of the CRM. The aim is not to capture, in a structured form, everything that can be said about an item; indeed, the CRM formalism is not regarded as sufficient to express everything that can be said. Good practice requires use of distinct note fields for different aspects of a characterisation. The P3.1 has type property of P3 has note allows differentiation of specific notes, e.g. “construction”, “decoration” etc. 
+An item may have many notes, but a note is attached to a specific item.
+"""@en ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range rdfs:Literal ;
+  .
+
+cidoc:P43_has_dimension
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a pour dimension"@fr ,
+    "has dimension"@en ,
+    "hat Dimension"@de ,
+    "tem dimensão"@pt ,
+    "έχει μέγεθος"@el ,
+    "имеет величину"@ru ,
+    "有规模数量"@cn
+    ;
+  rdfs:comment """This property records a E54 Dimension of some E70 Thing.
+It is a shortcut of the more fully developed path from E70 Thing through P39 measured (was measured by), E16 Measurement P40 observed dimension (was observed in) to E54 Dimension. It offers no information about how and when an E54 Dimension was established, nor by whom.
+An instance of E54 Dimension is specific to an instance of E70 Thing.
+"""@en ;
+  rdfs:domain cidoc:E70_Thing ;
+  rdfs:range cidoc:E54_Dimension ;
+  .
+
+cidoc:P43i_is_dimension_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est dimension de"@fr ,
+    "is dimension of"@en ,
+    "ist Dimension von"@de ,
+    "é dimensão de"@pt ,
+    "είναι μέγεθος του"@el ,
+    "является величиной для"@ru ,
+    "估量的标的物是"@cn
+    ;
+  rdfs:domain cidoc:E54_Dimension ;
+  rdfs:range cidoc:E70_Thing ;
+  .
+
+cidoc:P46_is_composed_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est composée de"@fr ,
+    "is composed of"@en ,
+    "ist zusammengesetzt aus"@de ,
+    "é composto de"@pt ,
+    "αποτελείται από"@el ,
+    "составлен из"@ru ,
+    "有组件"@cn
+    ;
+  rdfs:comment """This property allows instances of E18 Physical Thing to be analysed into component elements.
+Component elements, since they are themselves instances of E18 Physical Thing, may be further analysed into sub-components, thereby creating a hierarchy of part decomposition. An instance of E18 Physical Thing may be shared between multiple wholes, for example two buildings may share a common wall.
+This property is intended to describe specific components that are individually documented, rather than general aspects. Overall descriptions of the structure of an instance of E18 Physical Thing are captured by the P3 has note property.
+The instances of E57 Materials of which an item of E18 Physical Thing is composed should be documented using P45 consists of (is incorporated in).
+"""@en ;
+  rdfs:domain cidoc:E18_Physical_Thing ;
+  rdfs:range cidoc:E18_Physical_Thing ;
+  .
+
+cidoc:P46i_forms_part_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "bildet Teil von"@de ,
+    "fait partie de"@fr ,
+    "faz parte de"@pt ,
+    "forms part of"@en ,
+    "αποτελεί μέρος του/της"@el ,
+    "формирует часть"@ru ,
+    "被用来组成"@cn
+    ;
+  rdfs:domain cidoc:E18_Physical_Thing ;
+  rdfs:range cidoc:E18_Physical_Thing ;
+  .
+
+cidoc:P4_has_time-span
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a pour durée"@fr ,
+    "has time-span"@en ,
+    "hat Zeitspanne"@de ,
+    "tem período de tempo"@pt ,
+    "βρισκόταν σε εξέλιξη"@el ,
+    "имеет временной отрезок"@ru ,
+    "发生时段是"@cn
+    ;
+  rdfs:comment """This property describes the temporal confinement of an instance of an E2 Temporal Entity.
+The related E52 Time-Span is understood as the real Time-Span during which the phenomena were active, which make up the temporal entity instance. It does not convey any other meaning than a positioning on the “time-line” of chronology. The Time-Span in turn is approximated by a set of dates (E61 Time Primitive). A temporal entity can have in reality only one Time-Span, but there may exist alternative opinions about it, which we would express by assigning multiple Time-Spans. Related temporal entities may share a Time-Span. Time-Spans may have completely unknown dates but other descriptions by which we can infer knowledge.
+"""@en ;
+  rdfs:domain cidoc:E2_Temporal_Entity ;
+  rdfs:range cidoc:E52_Time-Span ;
+  .
+
+cidoc:P4i_is_time-span_of
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est la durée de"@fr ,
+    "is time-span of"@en ,
+    "ist Zeitspanne von"@de ,
+    "é o período de tempo de"@pt ,
+    "είναι χρονικό διάστημα του/της"@el ,
+    "является временным отрезком для"@ru ,
+    "开始并完成了"@cn
+    ;
+  rdfs:domain cidoc:E52_Time-Span ;
+  rdfs:range cidoc:E2_Temporal_Entity ;
+  .
+
+cidoc:P59_has_section
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a pour section"@fr ,
+    "has section"@en ,
+    "hat Bereich"@de ,
+    "tem seção"@pt ,
+    "έχει τομέα"@el ,
+    "имеет район"@ru ,
+    "有区域"@cn
+    ;
+  rdfs:comment """This property links an area to the instance of E18 Physical Thing upon which it is found.
+It is typically used when a named E46 Section Definition is not appropriate.
+E18 Physical Thing may be subdivided into arbitrary regions. 
+P59 has section (is located on or within) is a shortcut. If the E53 Place is identified by a Section Definition, a more detailed representation can make use of the fully developed (i.e. indirect) path from E18 Physical Thing through P58 has section definition (defines section), E46 Section Definition, P87 is identified by (identifies) to E53 Place. A Place can only be located on or within one Physical Object.
+"""@en ;
+  rdfs:domain cidoc:E18_Physical_Thing ;
+  rdfs:range cidoc:E53_Place ;
+  .
+
+cidoc:P59i_is_located_on_or_within
+  a owl:ObjectProperty ;
+  rdfs:label
+    "befindet sich auf oder in"@de ,
+    "está localizada sobre ou dentro de"@pt ,
+    "is located on or within"@en ,
+    "se situe sur ou dans"@fr ,
+    "βρίσκεται σε ή εντός"@el ,
+    "находится на или внутри"@ru ,
+    "位於"@cn
+    ;
+  rdfs:domain cidoc:E53_Place ;
+  rdfs:range cidoc:E18_Physical_Thing ;
+  .
+
+cidoc:P67_refers_to
+  a owl:ObjectProperty ;
+  rdfs:label
+    "fait référence à"@fr ,
+    "referencia"@pt ,
+    "refers to"@en ,
+    "verweist auf"@de ,
+    "αναφέρεται σε"@el ,
+    "ссылается на"@ru ,
+    "论及"@cn
+    ;
+  rdfs:comment """This property documents that an E89 Propositional Object makes a statement about an instance of E1 CRM Entity. P67 refers to (is referred to by) has the P67.1 has type link to an instance of E55 Type. This is intended to allow a more detailed description of the type of reference. This differs from P129 is about (is subject of), which describes the primary subject or subjects of the E89 Propositional Object.
+"""@en ;
+  rdfs:domain cidoc:E89_Propositional_Object ;
+  rdfs:range cidoc:E1_CRM_Entity ;
+  .
+
+cidoc:P67i_is_referred_to_by
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est référencé par"@fr ,
+    "is referred to by"@en ,
+    "wird angeführt von"@de ,
+    "é referenciado por"@pt ,
+    "αναφέρεται από"@el ,
+    "имеет ссылку на себя от"@ru ,
+    "被论及於"@cn
+    ;
+  rdfs:domain cidoc:E1_CRM_Entity ;
+  rdfs:range cidoc:E89_Propositional_Object ;
+  .
+
+cidoc:P75_possesses
+  a owl:ObjectProperty ;
+  rdfs:label
+    "besitzt"@de ,
+    "est détenteur de"@fr ,
+    "possesses"@en ,
+    "é detentor de"@pt ,
+    "κατέχει"@el ,
+    "владеет"@ru ,
+    "拥有"@cn
+    ;
+  rdfs:comment "This property identifies former or current instances of E30 Rights held by an E39 Actor."@en ;
+  rdfs:domain cidoc:E39_Actor ;
+  rdfs:range cidoc:E30_Right ;
+  .
+
+cidoc:P75i_is_possessed_by
+  a owl:ObjectProperty ;
+  rdfs:label
+    "est détenu par"@fr ,
+    "is possessed by"@en ,
+    "sind im Besitz von"@de ,
+    "são detidos por"@pt ,
+    "κατέχεται από"@el ,
+    "принадлежит"@ru ,
+    "有拥有者"@cn
+    ;
+  rdfs:domain cidoc:E30_Right ;
+  rdfs:range cidoc:E39_Actor ;
+  .
+
+cidoc:P7_took_place_at
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a eu lieu dans"@fr ,
+    "fand statt in"@de ,
+    "ocorreu em"@pt ,
+    "took place at"@en ,
+    "έλαβε χώρα σε"@el ,
+    "совершался на"@ru ,
+    "发生地在"@cn
+    ;
+  rdfs:comment """This property describes the spatial location of an instance of E4 Period. 
+The related E53 Place should be seen as an approximation of the geographical area within which the phenomena that characterise the period in question occurred. P7took place at (witnessed) does not convey any meaning other than spatial positioning (generally on the surface of the earth).  For example, the period “R?volution fran?aise” can be said to have taken place in “France”, the “Victorian” period, may be said to have taken place in “Britain” and its colonies, as well as other parts of Europe and north America.
+A period can take place at multiple locations.
+"""@en ;
+  rdfs:domain cidoc:E4_Period ;
+  rdfs:range cidoc:E53_Place ;
+  .
+
+cidoc:P7i_witnessed
+  a owl:ObjectProperty ;
+  rdfs:label
+    "a été témoin de"@fr ,
+    "bezeugte"@de ,
+    "testemunhou"@pt ,
+    "witnessed"@en ,
+    "υπήρξε τόπος του"@el ,
+    "был местом совершения"@ru ,
+    "发生过"@cn
+    ;
+  rdfs:domain cidoc:E53_Place ;
+  rdfs:range cidoc:E4_Period ;
+  .
+
+cidoc:P81_ongoing_throughout
+  a owl:DatatypeProperty ;
+  rdfs:label
+    "abrange no mínimo"@pt ,
+    "andauernd während"@de ,
+    "couvre au moins"@fr ,
+    "ongoing throughout"@en ,
+    "καθόλη τη διάρκεια του/της"@el ,
+    "длится в течение"@ru ,
+    "时段的数值至少涵盖"@cn
+    ;
+  rdfs:comment """This property describes the minimum period of time covered by an E52 Time-Span.
+Since Time-Spans may not have precisely known temporal extents, the CRM supports statements about the minimum and maximum temporal extents of Time-Spans. This property allows a Time-Span’s minimum temporal extent (i.e. its inner boundary) to be assigned an E61 Time Primitive value. Time Primitives are treated by the CRM as application or system specific date intervals, and are not further analysed.
+"""@en ;
+  rdfs:domain cidoc:E52_Time-Span ;
+  rdfs:range rdfs:Literal ;
+  .
+
+cidoc:P82_at_some_time_within
+  a owl:DatatypeProperty ;
+  rdfs:label
+    "abrange no máximo"@pt ,
+    "at some time within"@en ,
+    "couvre au plus"@fr ,
+    "irgendwann innerhalb von"@de ,
+    "κάποτε εντός"@el ,
+    "некоторое время в течение"@ru ,
+    "时段的数值不会超越"@cn
+    ;
+  rdfs:comment """This property describes the maximum period of time within which an E52 Time-Span falls.
+Since Time-Spans may not have precisely known temporal extents, the CRM supports statements about the minimum and maximum temporal extents of Time-Spans. This property allows a Time-Span’s maximum temporal extent (i.e. its outer boundary) to be assigned an E61 Time Primitive value. Time Primitives are treated by the CRM as application or system specific date intervals, and are not further analysed.
+"""@en ;
+  rdfs:domain cidoc:E52_Time-Span ;
+  rdfs:range rdfs:Literal ;
+  .
+
+cidoc:P89_falls_within
+  a owl:ObjectProperty ;
+  rdfs:label
+    "está contido em"@pt ,
+    "falls within"@en ,
+    "fällt in"@de ,
+    "s’insère dans"@fr ,
+    "περιέχεται σε"@el ,
+    "содержится в"@ru ,
+    "空间上被包围於"@cn
+    ;
+  rdfs:comment """This property identifies the instances of E53 Places that fall within the area covered by another Place.
+It addresses spatial containment only, and no ‘whole-part’ relationship between the two places is implied.
+"""@en ;
+  rdfs:domain cidoc:E53_Place ;
+  rdfs:range cidoc:E53_Place ;
+  .
+
+cidoc:P89i_contains
+  a owl:ObjectProperty ;
+  rdfs:label
+    "contains"@en ,
+    "contém"@pt ,
+    "enthält"@de ,
+    "inclut"@fr ,
+    "περιέχει"@el ,
+    "содержит"@ru ,
+    "空间上包含了"@cn
+    ;
+  rdfs:domain cidoc:E53_Place ;
+  rdfs:range cidoc:E53_Place ;
+  .
+
+cidoc:P92_brought_into_existence
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12_occurred_in_the_presence_of ;
+  rdfs:label
+    "a fait exister"@fr ,
+    "brachte in Existenz"@de ,
+    "brought into existence"@en ,
+    "trouxe à existência"@pt ,
+    "γέννησε"@el ,
+    "создал"@ru ,
+    "开始了"@cn
+    ;
+  rdfs:comment """This property allows an E63 Beginning of Existence event to be linked to the E77 Persistent Item brought into existence by it.
+It allows a “start” to be attached to any Persistent Item being documented i.e. E70 Thing, E72 Legal Object, E39 Actor, E41 Appellation, E51 Contact Point and E55 Type"""@en ;
+  rdfs:domain cidoc:E63_Beginning_of_Existence ;
+  rdfs:range cidoc:E77_Persistent_Item ;
+  .
+
+cidoc:P92i_was_brought_into_existence_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12i_was_present_at ;
+  rdfs:label
+    "a commencé à exister du fait de"@fr ,
+    "passou a existir por"@pt ,
+    "was brought into existence by"@en ,
+    "wurde in Existenz gebracht durch"@de ,
+    "γεννήθηκε από"@el ,
+    "был создан посредством"@ru ,
+    "被开始於"@cn
+    ;
+  rdfs:domain cidoc:E77_Persistent_Item ;
+  rdfs:range cidoc:E63_Beginning_of_Existence ;
+  .
+
+cidoc:P93_took_out_of_existence
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12_occurred_in_the_presence_of ;
+  rdfs:label
+    "a fait cesser d’exister"@fr ,
+    "beendete die Existenz von"@de ,
+    "cessou a existência de"@pt ,
+    "took out of existence"@en ,
+    "αναίρεσε"@el ,
+    "положил конец существованию"@ru ,
+    "结束了"@cn
+    ;
+  rdfs:comment """This property allows an E64 End of Existence event to be linked to the E77 Persistent Item taken out of existence by it.
+In the case of immaterial things, the E64 End of Existence is considered to take place with the destruction of the last physical carrier.
+This allows an “end” to be attached to any Persistent Item being documented i.e. E70 Thing, E72 Legal Object, E39 Actor, E41 Appellation, E51 Contact Point and E55 Type. For many Persistent Items we know the maximum life-span and can infer, that they must have ended to exist. We assume in that case an End of Existence, which may be as unnoticeable as forgetting the secret knowledge by the last representative of some indigenous nation.
+"""@en ;
+  rdfs:domain cidoc:E64_End_of_Existence ;
+  rdfs:range cidoc:E77_Persistent_Item ;
+  .
+
+cidoc:P93i_was_taken_out_of_existence_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P12i_was_present_at ;
+  rdfs:label
+    "a cessé d’exister du fait de"@fr ,
+    "deixou de existir"@pt ,
+    "was taken out of existence by"@en ,
+    "wurde seiner Existenz beraubt durch"@de ,
+    "αναιρέθηκε από"@el ,
+    "прекратил существование посредством"@ru ,
+    "被结束於"@cn
+    ;
+  rdfs:domain cidoc:E77_Persistent_Item ;
+  rdfs:range cidoc:E64_End_of_Existence ;
+  .
+
+cidoc:P94_has_created
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P92_brought_into_existence ;
+  rdfs:label
+    "a créé"@fr ,
+    "criou"@pt ,
+    "has created"@en ,
+    "hat erschaffen"@de ,
+    "δημιούργησε"@el ,
+    "создал"@ru ,
+    "创造了"@cn
+    ;
+  rdfs:comment """This property allows a conceptual E65 Creation to be linked to the E28 Conceptual Object created by it. 
+It represents the act of conceiving the intellectual content of the E28 Conceptual Object. It does not represent the act of creating the first physical carrier of the E28 Conceptual Object. As an example, this is the composition of a poem, not its commitment to paper.
+"""@en ;
+  rdfs:domain cidoc:E65_Creation ;
+  rdfs:range cidoc:E28_Conceptual_Object ;
+  .
+
+cidoc:P94i_was_created_by
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cidoc:P92i_was_brought_into_existence_by ;
+  rdfs:label
+    "a été créé par"@fr ,
+    "foi criado por"@pt ,
+    "was created by"@en ,
+    "wurde erschaffen durch"@de ,
+    "δημιουργήθηκε από"@el ,
+    "был создан посредством"@ru ,
+    "被创造於"@cn
+    ;
+  rdfs:domain cidoc:E28_Conceptual_Object ;
+  rdfs:range cidoc:E65_Creation ;
+  .
+
+[]
+  a owl:Ontology ;
+  .
+
