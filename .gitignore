@@ -2,6 +2,9 @@
 data/morphhb
 
 
+# Ontology artifacts 
+
+**/catalog-v001.xml
 
 ################
 # Rust Files 
