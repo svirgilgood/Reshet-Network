@@ -379,6 +379,7 @@ slo:Participle
 slo:Particle
 	a owl:Class ;
 	rdfs:subClassOf slo:PartOfSpeechProperty ;
+  rdfs:seeAlso gold:Particle ;
 	skos:definition "Particle is a broader term then what GOLD defines it as. Particle is a non-inflected word that can not easily be classified with other parts of speech. GOLD defines it: 'A term used to refer to an invariable item with grammatical function, especially one which does not readily fit into a standard classification of parts of speech. [Crystal 1997: 279-280]'"@eng ;
 	.
 

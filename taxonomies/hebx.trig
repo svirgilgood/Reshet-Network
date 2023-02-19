@@ -119,7 +119,7 @@ hebx:_adverb
 .
 
 hebx:_affirmation
-  rdf:type slo:Partical ;
+  rdf:type slo:Particle ;
   skos:prefLabel "Affirmation" ;
   skos:altLabel "affirmation" ;
   gist:isIdentifiedBy [
@@ -209,7 +209,7 @@ arax:_determined
 .
 
 hebx:_definite_direct_object
-  rdf:type slo:Determiner, slo:Partical ;
+  rdf:type slo:Determiner, slo:Particle ;
   skos:prefLabel "Definite direct object marker" ;
   skos:altLabel "ddo" ;
   gist:isIdentifiedBy [
@@ -490,7 +490,7 @@ arax:_ithpeel
   skos:prefLabel "Ithpeel" ;
   skos:altLabel "ithpeel" ;
   gist:isIdentifiedBy [
-      rdf:type gist:ID ;
+      rdf:type slo:LinguisticCode ;
       gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
       gist:uniqueText "i"
   ] ;
