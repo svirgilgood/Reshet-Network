@@ -1,9 +1,10 @@
-# Semitic Knowledge Graph
+# Reshet: Net(work) 
 
-The Semitic Knowledge Graph (SKG) is a suite of tools, ontologies, server, and web
+The Reshet: Net(work) is a suite of tools, ontologies, server, and web
 client that is designed around exploring texts and artificats from the ancient
-Near East. The goal of the SKG is to place comparative semitic linguistics in
-its historical and cultural contexts. 
+Near East. The goal of Reshet is to place comparative semitic linguistics in
+its historical and cultural contexts as well as the reception of these texts
+throughout history.
 
 
 ## Parts of the Repo
@@ -23,15 +24,15 @@ Routes:
 
 ### docs: documentation for different features 
 
-### skg: The React Web Client 
+### reshet: The React Web Client 
 
-### skg-scripts: scripts for parsing data 
+### reshet-scripts: scripts for parsing data 
 
 Primarily, these are python scripts to parse data and pull in the data in a
-pipeline or controled form. Many of the functions tested in the `skg-notes`
+pipeline or controled form. Many of the functions tested in the `reshet-notes`
 directory are incorporated into scripts here.
 
-This directory also contains the subdirectory `skg-notes` which contains the
+This directory also contains the subdirectory `reshet-notes` which contains the
 jupiter notebooks for exploring data.
 
 
