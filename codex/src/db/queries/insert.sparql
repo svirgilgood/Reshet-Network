@@ -1,0 +1,10 @@
+
+DELETE {
+  {{delete_triples}}
+}
+INSERT {
+  {{insert_triples}}
+}
+WHERE {
+  {{graph_pattern}}
+}

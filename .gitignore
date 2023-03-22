@@ -4,6 +4,7 @@ data/morphhb
 data/triples
 
 .env
+.vscode
 
 # Ontology artifacts
 

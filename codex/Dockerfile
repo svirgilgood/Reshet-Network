@@ -17,7 +17,7 @@ ARG APP=/usr/src/app
 
 
 RUN apt-get update \
-    && apt-get install -y ca-certificates tzdata \
+    && apt-get install -y ca-certificates tzdata openssl libssl-dev\
     && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080

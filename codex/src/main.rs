@@ -1,5 +1,8 @@
 use actix_web::{get, web, App, HttpServer};
 
+mod db;
+pub mod utils;
+
 // This struct represents state
 struct AppState {
     app_name: String,

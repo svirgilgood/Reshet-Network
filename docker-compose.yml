@@ -8,8 +8,6 @@ services:
     #   dockerfile: server/Dockerfile
     volumes:
       - ./data/triples:/data
-    networks:
-      - skg
 
   nginx-auth:
     image: nginx:1.21.4
