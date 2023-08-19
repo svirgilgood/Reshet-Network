@@ -759,19 +759,9 @@ slo:Language
 slo:_aramaic
   a slo:Language ;
   skos:prefLabel "Aramaic" ;
-  gist:isIdentifiedBy [
-      rdf:type slo:LinguisticCode ;
-      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
-      gist:containedText "A"
-  ] ;
 .
 
 slo:_hebrew
   a slo:Language ;
   skos:prefLabel "Hebrew" ;
-  gist:isIdentifiedBy [
-      rdf:type slo:LinguisticCode ;
-      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
-      gist:containedText "H"
-  ] ;
 .

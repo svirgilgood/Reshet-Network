@@ -13,6 +13,24 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
+slo:_aramaic
+  a slo:Language ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "A"
+  ] ;
+.
+
+slo:_hebrew
+  a slo:Language ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "H"
+  ] ;
+.
+
 hebx:
   rdf:type owl:Ontology ;
   owl:versionIRI <https://taxonomies.edubbainstitute.org/hebx0.1.0> ;
