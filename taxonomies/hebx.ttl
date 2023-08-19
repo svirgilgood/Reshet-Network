@@ -205,7 +205,7 @@ hebx:_affirmation
 .
 
 arax:_aphel
-  rdf:type slo:CausativeStem ;
+  rdf:type slo:CausativeStem, slo:VerbStem ;
   skos:prefLabel "Aphel" ;
   skos:altLabel "aphel" ;
   gist:isIdentifiedBy [
@@ -375,7 +375,7 @@ hebx:_gentilic
 .
 
 arax:_haphel
-  rdf:type slo:CausativeStem ;
+  rdf:type slo:CausativeStem, slo:VerbStem ;
   skos:prefLabel "Haphel" ;
   skos:altLabel "haphel" ;
   gist:isIdentifiedBy [
@@ -386,7 +386,7 @@ arax:_haphel
 .
 
 hebx:_hiphil
-  rdf:type slo:CausativeStem ;
+  rdf:type slo:CausativeStem, slo:VerbStem ;
   skos:prefLabel "Hiphil" ;
   skos:altLabel "hiphil" ;
   gist:isIdentifiedBy [
@@ -397,7 +397,7 @@ hebx:_hiphil
 .
 
 hebx:_hishtaphel
-  rdf:type slo:CtStem ;
+  rdf:type slo:CtStem, slo:VerbStem ;
   skos:prefLabel "Hishtaphel" ;
   skos:altLabel "histaphel" ;
   gist:isIdentifiedBy [
@@ -408,7 +408,7 @@ hebx:_hishtaphel
 .
 
 arax:_hithpaal
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hithpaal" ;
   skos:altLabel "hithpaal" ;
   gist:isIdentifiedBy [
@@ -419,7 +419,7 @@ arax:_hithpaal
 .
 
 hebx:_hithpael
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hithpaal" ;
   skos:altLabel "hithpaal" ;
   gist:isIdentifiedBy [
@@ -430,7 +430,7 @@ hebx:_hithpael
 .
 
 hebx:_hithpalpel
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hithpalpel" ;
   skos:altLabel "hithpalpel" ;
   gist:isIdentifiedBy [
@@ -441,7 +441,7 @@ hebx:_hithpalpel
 .
 
 arax:_hithpeel
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hithpeel" ;
   skos:altLabel "hitpeel" ;
   gist:isIdentifiedBy [
@@ -452,7 +452,7 @@ arax:_hithpeel
 .
 
 hebx:_hithpoel
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hithpoel" ;
   skos:altLabel "hithpoel" ;
   gist:isIdentifiedBy [
@@ -463,7 +463,7 @@ hebx:_hithpoel
 .
 
 hebx:_hithpolel
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hithpolel" ;
   skos:altLabel "Hithpolel" ;
   gist:isIdentifiedBy [
@@ -474,7 +474,7 @@ hebx:_hithpolel
 .
 
 hebx:_hophal
-  rdf:type slo:CpStem ;
+  rdf:type slo:CpStem, slo:VerbStem ;
   skos:prefLabel "Hophal" ;
   skos:altLabel "hophal" ;
   gist:isIdentifiedBy [
@@ -485,7 +485,7 @@ hebx:_hophal
 .
 
 hebx:_hothpaal
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Hothpaal" ;
   skos:altLabel "hothpaal" ;
   gist:isIdentifiedBy [
@@ -551,7 +551,7 @@ hebx:_interrogative
 .
 
 arax:_ishtaphel
-  rdf:type slo:CtStem ;
+  rdf:type slo:CtStem, slo:VerbStem ;
   skos:prefLabel "Ishtaphel" ;
   skos:altLabel "ishtaphel" ;
    gist:isIdentifiedBy [
@@ -562,7 +562,7 @@ arax:_ishtaphel
 .
 
 arax:_ithpaal
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Ithpaal" ;
   skos:altLabel "ithpaal" ;
   gist:isIdentifiedBy [
@@ -573,7 +573,7 @@ arax:_ithpaal
 .
 
 arax:_ithpeel
-  rdf:type slo:GtStem ;
+  rdf:type slo:GtStem, slo:VerbStem ;
   skos:prefLabel "Ithpeel" ;
   skos:altLabel "ithpeel" ;
   gist:isIdentifiedBy [
@@ -584,7 +584,7 @@ arax:_ithpeel
 .
 
 arax:_ithpoel
-  rdf:type slo:DtStem ;
+  rdf:type slo:DtStem, slo:VerbStem ;
   skos:prefLabel "Ithpoel" ;
   skos:altLabel "ithpoel" ;
   gist:isIdentifiedBy [
@@ -643,7 +643,7 @@ hebx:_negative
  .
 
 hebx:_niphal
-  rdf:type slo:NStem ;
+  rdf:type slo:NStem, slo:VerbStem ;
   skos:prefLabel "Niphal" ;
   skos:altLabel "niphal" ;
   gist:isIdentifiedBy [
@@ -654,7 +654,7 @@ hebx:_niphal
 .
 
 hebx:_nithpael
-  rdf:type slo:NtStem ;
+  rdf:type slo:NtStem, slo:VerbStem ;
   skos:prefLabel "Nithpael" ;
   skos:altlabel "nithpael" ;
   gist:isIdentifiedBy [
@@ -700,7 +700,7 @@ hebx:_paragogic_nun
 
 
 arax:_pael
-  rdf:type slo:DoubleStem ;
+  rdf:type slo:DoubleStem, slo:VerbStem ;
   skos:prefLabel "Pael" ;
   skos:altLabel "pael" ;
   gist:isIdentifiedBy [
@@ -711,7 +711,7 @@ arax:_pael
   .
 
 hebx:_palel
-  rdf:type slo:DoubleStem ;
+  rdf:type slo:DoubleStem, slo:VerbStem ;
   skos:prefLabel "Palel" ;
   skos:altLabel "palel" ;
   gist:isIdentifiedBy [
@@ -756,7 +756,7 @@ hebx:_personal_pronoun
 .
 
 hebx:_qal_passive
-  rdf:type slo:GpStem ;
+  rdf:type slo:GpStem, slo:VerbStem ;
   skos:prefLabel "Qal Passive" ;
   skos:altLabel "qal pass" ;
   gist:isIdentifiedBy [
@@ -779,7 +779,7 @@ hebx:_passive_participle
 .
 
 arax:_peal
-  rdf:type slo:GroundStem ;
+  rdf:type slo:GroundStem, slo:VerbStem ;
   skos:prefLabel "Peal" ;
   skos:altLabel "peal" ;
   gist:isIdentifiedBy [
@@ -790,7 +790,7 @@ arax:_peal
   .
 
 hebx:_pealal
-  rdf:type slo:DoubleStem ;
+  rdf:type slo:DoubleStem, slo:VerbStem ;
   skos:prefLabel "Pealal" ;
   skos:altLabel "pealal" ;
    gist:isIdentifiedBy [
@@ -801,7 +801,7 @@ hebx:_pealal
  .
 
 arax:_peil
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Peil" ;
   skos:altLabel "peil" ;
   gist:isIdentifiedBy [
@@ -823,7 +823,7 @@ hebx:_perfective
 .
 
 hebx:_piel
-  rdf:type slo:DoubleStem ;
+  rdf:type slo:DoubleStem, slo:VerbStem ;
   skos:prefLabel "Piel" ;
   skos:altLabel "piel" ;
   gist:isIdentifiedBy [
@@ -834,7 +834,7 @@ hebx:_piel
 .
 
 hebx:_pilel
-  rdf:type slo:DoubleStem ;
+  rdf:type slo:DoubleStem, slo:VerbStem ;
   skos:prefLabel "Pilel" ;
   skos:altLabel "pilel" ;
   gist:isIdentifiedBy [
@@ -845,7 +845,7 @@ hebx:_pilel
   .
 
 hebx:_pilpel
-  rdf:type slo:DoubleStem ;
+  rdf:type slo:DoubleStem, slo:VerbStem ;
   skos:prefLabel "Pilpel" ;
   skos:altLabel "pilpel" ;
    gist:isIdentifiedBy [
@@ -867,7 +867,7 @@ hebx:_plural
 .
 
 hebx:_poal
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Poal" ;
   skos:altLabel "poal" ;
   gist:isIdentifiedBy [
@@ -878,7 +878,7 @@ hebx:_poal
 .
 
 arax:_poel
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Poel" ;
   skos:altLabel "poel" ;
   gist:isIdentifiedBy [
@@ -889,7 +889,7 @@ arax:_poel
   .
 
 hebx:_polal
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Polal" ;
   skos:altLabel "polal" ;
   gist:isIdentifiedBy [
@@ -900,7 +900,7 @@ hebx:_polal
 .
 
 hebx:_polel
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Polel" ;
   skos:altLabel "polel" ;
   gist:isIdentifiedBy [
@@ -911,7 +911,7 @@ hebx:_polel
 .
 
 hebx:_polpal
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Polpal" ;
   skos:altLabel "polpal" ;
   gist:isIdentifiedBy [
@@ -956,7 +956,7 @@ hebx:_pronoun
   .
 
 hebx:_pual
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Pual" ;
   skos:altLabel "pual" ;
   gist:isIdentifiedBy [
@@ -967,7 +967,7 @@ hebx:_pual
  .
 
 hebx:_pulal
-  rdf:type slo:DpStem ;
+  rdf:type slo:DpStem, slo:VerbStem ;
   skos:prefLabel "Pulal" ;
   skos:altLabel "pulal" ;
   gist:isIdentifiedBy [
@@ -978,7 +978,7 @@ hebx:_pulal
   .
 
 hebx:_qal
-  rdf:type slo:GroundStem ;
+  rdf:type slo:GroundStem, slo:VerbStem ;
   skos:prefLabel "Qal" ;
   skos:altLabel "qal" ;
   gist:isIdentifiedBy [
@@ -1011,7 +1011,7 @@ hebx:_relative_particle
 .
 
 arax:_saphel
-  rdf:type slo:CausativeStem ;
+  rdf:type slo:CausativeStem, slo:VerbStem ;
   skos:prefLabel "Saphel" ;
   skos:altLabel "saphel" ;
   gist:isIdentifiedBy [
@@ -1057,7 +1057,7 @@ hebx:_sequential_perfect
 .
 
 arax:_shaphel
-  rdf:type slo:CausativeStem ;
+  rdf:type slo:CausativeStem, slo:VerbStem ;
   skos:prefLabel "Shaphel" ;
   skos:altLabel "shaphel" ;
   gist:isIdentifiedBy [
@@ -1102,7 +1102,7 @@ hebx:_third_person
 .
 
 arax:_tiphil
-  rdf:type slo:CausativeStem ;
+  rdf:type slo:CausativeStem, slo:VerbStem ;
   skos:prefLabel "Tiphil" ;
   skos:altLabel "tiphil" ;
   gist:isIdentifiedBy [
