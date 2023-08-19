@@ -125,6 +125,40 @@ hebx:_active
   skos:altLabel "act" ;
 .
 
+hebx:_absolute_state
+  rdf:type slo:CaseProperty ;
+  skos:prefLabel "Absolute State" ;
+  skos:altLabel "absolute" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "a"
+  ] ;
+.
+
+hebx:_construct_state
+  rdf:type slo:CaseProperty ;
+  skos:prefLabel "Construct State" ;
+  skos:altLabel "construct" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "c"
+  ] ;
+.
+
+arax:_determined_noun
+  rdf:type slo:CaseProperty ;
+  skos:prefLabel "Determined" ;
+  skos:altLabel "determined" ;
+  rdfs:comment "This may not be a case ending, used primarily in Aramaic as the definite article" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "d"
+  ] ;
+.
+
 hebx:_adjective
   rdf:type slo:Adjectival ;
   skos:prefLabel "Adjectival" ;
@@ -272,9 +306,10 @@ hebx:_definite_direct_object
 .
 
 hebx:_directional_he
-  rdf:type slo:CaseProperty, slo:Suffix ;
+  rdf:type slo:Suffix ;
   skos:prefLabel "Directional he" ;
   skos:altLabel "dir he" ;
+  rdf:comment "This is probably a case property as well, but in the OSHB it is only a suffix type" ;
   gist:isIdentifiedBy [
       rdf:type slo:LinguisticCode ;
       gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;

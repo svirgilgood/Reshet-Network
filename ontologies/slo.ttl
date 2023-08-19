@@ -118,6 +118,7 @@ slo:CaseProperty
   a owl:Class ;
   rdfs:subClassOf slo:MorphosyntacticProperty ;
 	rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
+	rdfs:seeAlso gold:CaseProperty ;
   rdfs:comment "gold defines: 'CaseProperty is the class of properties that concerns the grammatical encoding of a noun's relationship (syntactic or semantic) to some other element in the sentence, such as a verb, noun, pronoun, or adposition [Pei and Gaynor 1954: 35; Crystal 1980: 53-54; Anderson 1985: 179-180; Andrews 1985: 7172; Kuno 1973: 45; Blake 2001].'"@eng ;
   skos:prefLabel "Case Property" ;
   .
