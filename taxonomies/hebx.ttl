@@ -31,6 +31,14 @@ slo:_hebrew
   ] ;
 .
 
+hebx:VerbalConjugation
+  a owl:Class ;
+  rdfs:subClassOf slo:MorphosemanticProperty ;
+  skos:prefLabel "Verbal Conjugation" ;
+  skos:altLabel "Verbal Conjugation" ;
+  skos:definition "A verbal conjugation is part morphosyntac part part of speech." ;
+.
+
 hebx:
   rdf:type owl:Ontology ;
   owl:versionIRI <https://taxonomies.edubbainstitute.org/hebx0.1.0> ;
@@ -108,6 +116,7 @@ hebx:_common_noun
 
 hebx:_infinitive_absolute
   rdf:type slo:Converb ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Infinitive Absolute" ;
   skos:altLabel "abs" ;
   slo:inLanguage slo:_hebrew ;
@@ -250,6 +259,7 @@ hebx:_conjunction
 
 hebx:_infinitive_construct
   rdf:type slo:Converb ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Construct" ;
   skos:altLabel "const" ;
   gist:isIdentifiedBy [
@@ -316,6 +326,17 @@ hebx:_directional_he
       gist:containedText "d"
   ] ;
 .
+hebx:_singular_number
+  rdf:type slo:NumberProperty ;
+  skos:prefLabel "Singular" ;
+  skos:altLabel "singular" ;
+  gist:isIdentifiedBy [
+      rdf:type slo:LinguisticCode ;
+      gist:isAllocatedBy hebx:_Organization_openScripturesHebrewBible ;
+      gist:containedText "s"
+  ] ;
+.
+
 
 hebx:_dual
   rdf:type slo:NumberProperty ;
@@ -724,6 +745,7 @@ hebx:_palel
 hebx:_active_participle
   rdf:type slo:Participle ;
   rdf:type slo:ActiveVoice ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Active Particple" ;
   skos:altLabel "act ptcp" ;
   gist:isIdentifiedBy [
@@ -769,6 +791,7 @@ hebx:_qal_passive
 hebx:_passive_participle
   rdf:type slo:Participle ;
   rdf:type slo:PassiveVoice ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Passive Particple" ;
   skos:altLabel "pass ptcp" ;
   gist:isIdentifiedBy [
