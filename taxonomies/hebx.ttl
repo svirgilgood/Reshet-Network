@@ -237,7 +237,7 @@ hebx:_definite_article
 
 hebx:_cohortative
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Cohortative" ;
   skos:altLabel "coh" ;
   gist:isIdentifiedBy [
@@ -519,7 +519,7 @@ hebx:_hothpaal
 
 hebx:_imperative
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Imperative" ;
   skos:altLabel "imperative" ;
   gist:isIdentifiedBy [
@@ -531,7 +531,7 @@ hebx:_imperative
 
 hebx:_imperfect
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Imperfective" ;
   skos:altLabel "imperfect" , "yiqtol" ;
   gist:isIdentifiedBy [
@@ -621,7 +621,7 @@ arax:_ithpoel
 
 hebx:_jussive
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Jussive" ;
   skos:altLabel "jussive" ;
   gist:isIdentifiedBy [
@@ -840,7 +840,7 @@ arax:_peil
 
 hebx:_perfective
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Perfective" ;
   skos:altLabel "perfect" , "suffix conjugation" ;
   gist:isIdentifiedBy [
@@ -1062,7 +1062,7 @@ hebx:_second_person
 
 hebx:_sequential_imperfect
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Sequential Imperfective" ;
   skos:altLabel "sequential imperfect" , "weyiqtol", "waw-consecutive" ;
   skos:definition "the waw-consequitive for showing narrative sequence" ;
@@ -1075,7 +1075,7 @@ hebx:_sequential_imperfect
 
 hebx:_sequential_perfect
   rdf:type slo:TenseMoodAspect ;
-  rdf:type slo:VerbalConjugation ;
+  rdf:type hebx:VerbalConjugation ;
   skos:prefLabel "Sequential Perfective" ;
   skos:altLabel "sequential perfect", "waqatal" ;
   skos:definition "the waw plus the suffix conjugation in narrative discourse" ;
