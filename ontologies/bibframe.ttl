@@ -1,3 +1,4 @@
+@prefix : <http://id.loc.gov/ontologies/bibframe/> .
 @prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
 @prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
 @prefix cc: <http://creativecommons.org/ns#> .
@@ -7,15 +8,15 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://id.loc.gov/ontologies/bibframe/>
   a owl:Ontology ;
   rdfs:label "BIBFRAME vocabulary" ;
   cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dcterms:creator [
-    rdfs:resource "http://id.loc.gov/vocabulary/organizations/dlc" ;
-  ] ;
+  dcterms:creator _:blank1 ;
   dcterms:description '''The Bibframe vocabulary consists of RDF classes and properties used for the description of 
             items cataloged principally by libraries, but may also be used to describe items cataloged by museums and archives. 
             Classes include the three core classes - Work, Instance, and Item - in addition to many more 
@@ -26,15 +27,17 @@
             example: the Bibframe property "subject" expresses an important attribute of a Work 
             (what the Work is about), and the property "extent" (e.g. number of pages) expresses an
             attribute of an Instance.'''@en ;
-  dcterms:issued "2022-10-06T12:00:00.000-05:00"^^xs:dateTime ;
-  dcterms:modified "2022-10-18T15:48:05.075-04:00"^^xs:dateTime ;
-  dcterms:publisher [
-    rdfs:resource "http://id.loc.gov/vocabulary/organizations/dlcmrc" ;
-  ] ;
+  dcterms:issued "2022-10-06T12:00:00.000-05:00"^^xsd:dateTime ;
+  dcterms:modified "2022-10-18T15:48:05.075-04:00"^^xsd:dateTime ;
+  dcterms:publisher _:blank3 ;
   dcterms:rights <https://creativecommons.org/publicdomain/zero/1.0/> ;
   owl:priorVersion <http://id.loc.gov/ontologies/bibframe-2-1-0/> ;
   owl:versionIRI <http://id.loc.gov/ontologies/bibframe-2-2-0/> ;
   owl:versionInfo "2.2.0" ;
+  .
+
+cc:license
+  a owl:AnnotationProperty ;
   .
 
 bf:AbbreviatedTitle
@@ -1721,7 +1724,6 @@ bf:absorbedBy
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:absorbed ;
   skos:definition "Resource that incorporates another resource." ;
   .
 
@@ -1753,12 +1755,14 @@ bf:accompanies
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse)"
     ;
-  owl:inverseOf bf:accompaniedBy ;
   skos:definition "Resource that adds to or is issued with the described resource." ;
   .
 
 bf:acquisitionSource
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Source of acquisition" ;
   rdfs:comment "Suggested use - With Work or Instance" ;
   dcterms:modified
@@ -1789,7 +1793,10 @@ bf:adminMetadata
   .
 
 bf:adminMetadataFor
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Administrative metadata for" ;
   dcterms:modified "2021-06-09 (New [GH59])" ;
   rdfs:domain bf:AdminMetadata ;
@@ -1798,7 +1805,10 @@ bf:adminMetadataFor
   .
 
 bf:agent
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Associated agent" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -1810,7 +1820,10 @@ bf:agent
   .
 
 bf:agentOf
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Associated agent of" ;
   dcterms:modified "2021-06-09 (New [GH3])" ;
   rdfs:domain rdfs:Resource ;
@@ -1819,7 +1832,10 @@ bf:agentOf
   .
 
 bf:appliedMaterial
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:subPropertyOf bf:material ;
   rdfs:label "Applied material" ;
   rdfs:comment "Suggested use - With Work, Instance or Item" ;
@@ -1832,7 +1848,10 @@ bf:appliedMaterial
   .
 
 bf:appliedMaterialOf
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:subPropertyOf bf:materialOf ;
   rdfs:label "Appllied material of" ;
   dcterms:modified "2021-06-09 (New [GH25])" ;
@@ -1862,7 +1881,6 @@ bf:arrangementOf
   dcterms:modified "2021-06-09 (New [GH77])" ;
   rdfs:domain bf:Work ;
   rdfs:range bf:Work ;
-  owl:inverseOf bf:arrangement ;
   skos:definition "Relates an arrangement to the resource of which it is an arrangement." ;
   .
 
@@ -1885,7 +1903,10 @@ bf:aspectRatio
   .
 
 bf:assigner
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Assigner" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -1910,7 +1931,10 @@ bf:awards
   .
 
 bf:baseMaterial
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:subPropertyOf bf:material ;
   rdfs:label "Base material" ;
   rdfs:comment "Suggested use - With Work, Instance or Item" ;
@@ -1923,7 +1947,10 @@ bf:baseMaterial
   .
 
 bf:baseMaterialOf
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:subPropertyOf bf:materialOf ;
   rdfs:label "Base material of" ;
   dcterms:modified "2021-06-09 (New [GH25])" ;
@@ -1933,7 +1960,10 @@ bf:baseMaterialOf
   .
 
 bf:binding
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Binding method" ;
   dcterms:modified "2022-10-03 (New [GH91])" ;
   rdfs:domain bf:Instance ;
@@ -1960,7 +1990,10 @@ bf:capture
   .
 
 bf:carrier
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Carrier type" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2057,7 +2090,10 @@ bf:colorContent
   .
 
 bf:content
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Content type" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2125,7 +2161,6 @@ bf:continues
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:continuedBy ;
   skos:definition "Resource that is continued by the content of a later resource under a new title." ;
   .
 
@@ -2297,7 +2332,10 @@ bf:derivativeOf
   .
 
 bf:derivedFrom
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Source metadata" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2348,7 +2386,10 @@ bf:descriptionLevel
   .
 
 bf:descriptionModifier
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Description modifier" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2427,7 +2468,10 @@ bf:editionStatement
   .
 
 bf:electronicLocator
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Electronic location" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2513,7 +2557,6 @@ bf:eventContentOf
     ;
   rdfs:domain bf:Work ;
   rdfs:range bf:Event ;
-  owl:inverseOf bf:eventContent ;
   skos:definition "Event that is the content of the described work." ;
   .
 
@@ -2581,7 +2624,6 @@ bf:findingAidOf
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:findingAid ;
   skos:definition "Finding aid or similar control materials for archival, visual, and manuscript resources." ;
   .
 
@@ -2651,7 +2693,10 @@ bf:generationProcess
   .
 
 bf:genreForm
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Genre/form" ;
   rdfs:comment "Suggested use - With Work, Instance or Item" ;
   dcterms:modified
@@ -2676,7 +2721,10 @@ bf:geographicCoverage
   .
 
 bf:grantingInstitution
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Degree issuing institution" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2699,12 +2747,14 @@ bf:hasDerivative
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse)"
     ;
-  owl:inverseOf bf:derivativeOf ;
   skos:definition "Resource that is a modification of the described work." ;
   .
 
 bf:hasEquivalent
-  a owl:SymmetricProperty ;
+  a
+    owl:ObjectProperty ,
+    owl:SymmetricProperty
+    ;
   rdfs:subPropertyOf bf:relatedTo ;
   rdfs:label "Equivalence" ;
   rdfs:comment
@@ -2726,7 +2776,6 @@ bf:hasExpression
     ;
   rdfs:domain bf:Work ;
   rdfs:range bf:Work ;
-  owl:inverseOf bf:expressionOf ;
   skos:definition "Work that is an expression of a described Work. Use to relate Works under LRM/RDA guidelines or similar implementations." ;
   .
 
@@ -2823,7 +2872,10 @@ bf:hasSubseries
   .
 
 bf:heldBy
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Held by" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -2869,12 +2921,14 @@ bf:identifiedBy
   .
 
 bf:identifies
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Resource identified" ;
   dcterms:modified "2017-02-03 (New inverse)" ;
   rdfs:domain bf:Identifier ;
   rdfs:range rdfs:Resource ;
-  owl:inverseOf bf:identifiedBy ;
   skos:definition "Resource that is associated with a character string that serves to differentiate one resource from another." ;
   .
 
@@ -2928,7 +2982,6 @@ bf:indexOf
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:index ;
   skos:definition "Index that accompanies a resource." ;
   .
 
@@ -2942,7 +2995,6 @@ bf:instanceOf
     ;
   rdfs:domain bf:Instance ;
   rdfs:range bf:Work ;
-  owl:inverseOf bf:hasInstance ;
   skos:definition "Work the Instance described instantiates or manifests. For use to connect Instances to Works in the BIBFRAME structure." ;
   .
 
@@ -2965,7 +3017,10 @@ bf:instrumentalType
   .
 
 bf:intendedAudience
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Intended audience" ;
   rdfs:comment "Suggested use - With Work or Instance" ;
   dcterms:modified
@@ -2986,7 +3041,10 @@ bf:issuance
   .
 
 bf:issuedWith
-  a owl:SymmetricProperty ;
+  a
+    owl:ObjectProperty ,
+    owl:SymmetricProperty
+    ;
   rdfs:subPropertyOf bf:accompanies ;
   rdfs:label "Issued with" ;
   rdfs:comment
@@ -3011,7 +3069,6 @@ bf:itemOf
     ;
   rdfs:domain bf:Item ;
   rdfs:range bf:Instance ;
-  owl:inverseOf bf:hasItem ;
   skos:definition "Instance for which the described Item is an example." ;
   .
 
@@ -3025,7 +3082,10 @@ bf:itemPortion
   .
 
 bf:language
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Language information" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -3077,7 +3137,10 @@ bf:mainTitle
   .
 
 bf:material
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Material" ;
   rdfs:comment "Suggested use - With Work, Instance or Item" ;
   dcterms:modified "2021-06-09 (New [GH26])" ;
@@ -3086,7 +3149,10 @@ bf:material
   .
 
 bf:materialOf
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Material of" ;
   rdfs:comment "Suggested use - With Work, Instance or Item" ;
   dcterms:modified "2021-06-09 (New [GH26])" ;
@@ -3095,7 +3161,10 @@ bf:materialOf
   .
 
 bf:media
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Media type" ;
   rdfs:comment "Suggested use - With Work or Instance" ;
   dcterms:modified
@@ -3134,12 +3203,14 @@ bf:mergerOf
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:mergedToForm ;
   skos:definition "One of two or more resources which came together to form a new resource." ;
   .
 
 bf:mount
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Mount material or object" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -3232,7 +3303,10 @@ bf:note
   .
 
 bf:noteFor
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Note for" ;
   dcterms:modified "2021-06-09 (New [GH34])" ;
   rdfs:domain bf:Note ;
@@ -3263,7 +3337,10 @@ bf:originDate
   .
 
 bf:originPlace
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:subPropertyOf bf:place ;
   rdfs:label "Origin place" ;
   rdfs:comment "Suggested use - With Work or Instance" ;
@@ -3304,12 +3381,14 @@ bf:originalVersionOf
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:originalVersion ;
   skos:definition "Original version of a resource." ;
   .
 
 bf:otherEdition
-  a owl:SymmetricProperty ;
+  a
+    owl:ObjectProperty ,
+    owl:SymmetricProperty
+    ;
   rdfs:subPropertyOf bf:relatedTo ;
   rdfs:label "Other edition" ;
   rdfs:comment
@@ -3325,7 +3404,10 @@ bf:otherEdition
   .
 
 bf:otherPhysicalFormat
-  a owl:SymmetricProperty ;
+  a
+    owl:ObjectProperty ,
+    owl:SymmetricProperty
+    ;
   rdfs:subPropertyOf bf:hasEquivalent ;
   rdfs:label "Has other physical format" ;
   rdfs:comment "Suggested use - With Work or Instance" ;
@@ -3386,7 +3468,6 @@ bf:partOf
     "2016-04-29 (added inverse)" ,
     "2021-06-09 (Use with Event also [GH9])"
     ;
-  owl:inverseOf bf:hasPart ;
   skos:definition "Resource in which the described resource is physically or logically contained." ;
   .
 
@@ -3412,7 +3493,10 @@ bf:physicalLocation
   .
 
 bf:place
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Place" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -3566,12 +3650,15 @@ bf:references
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse)"
     ;
-  owl:inverseOf bf:referencedBy ;
   skos:definition "Resource that is referenced by the described resource." ;
   .
 
 bf:relatedTo
-  a owl:SymmetricProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty ,
+    owl:SymmetricProperty
+    ;
   rdfs:label "Related resource" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -3612,7 +3699,6 @@ bf:replacementOf
     "2016-04-29 (added inverse, updated range)" ,
     "2022-10-03 (corrected label [GH85])"
     ;
-  owl:inverseOf bf:replacedBy ;
   skos:definition "Earlier resource whose content has been replaced by a later resource, usually because the later resource contains updated or new information." ;
   .
 
@@ -3626,7 +3712,6 @@ bf:reproductionOf
     ;
   rdfs:domain bf:Instance ;
   rdfs:range bf:Instance ;
-  owl:inverseOf bf:hasReproduction ;
   skos:definition "Resource that is a reproduction of another Resource." ;
   .
 
@@ -3693,7 +3778,6 @@ bf:separatedFrom
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:continuedInPartBy ;
   skos:definition "Resource that spun off a part of its content to form a new resource." ;
   .
 
@@ -3718,7 +3802,6 @@ bf:seriesOf
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:hasSeries ;
   skos:definition "Resource that is a part of a larger resource." ;
   .
 
@@ -3762,7 +3845,10 @@ bf:soundContent
   .
 
 bf:source
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Source" ;
   dcterms:modified
     "2016-04-21 (New)" ,
@@ -3794,7 +3880,6 @@ bf:splitInto
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:continuesInPart ;
   skos:definition "One of two or more resources resulting from the division of an earlier resource into separate resources." ;
   .
 
@@ -3808,7 +3893,10 @@ bf:status
   .
 
 bf:subject
-  a owl:ObjectProperty ;
+  a
+    owl:DatatypeProperty ,
+    owl:ObjectProperty
+    ;
   rdfs:label "Subject" ;
   rdfs:comment "Suggested use - With Work, Instance, Item or Event" ;
   dcterms:modified
@@ -3858,7 +3946,6 @@ bf:subseriesOf
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:hasSubseries ;
   skos:definition "Series resource of which the described resource is a part." ;
   .
 
@@ -3892,7 +3979,6 @@ bf:succeededBy
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse)"
     ;
-  owl:inverseOf bf:precededBy ;
   skos:definition "Resource that succeeds the resource being described, e.g., later in time or after in a narrative." ;
   .
 
@@ -3933,7 +4019,6 @@ bf:supplementTo
     "2016-04-21 (New)" ,
     "2016-04-29 (added inverse, updated range)"
     ;
-  owl:inverseOf bf:supplement ;
   skos:definition "Resource that is updated or otherwise complemented by the augmenting resource." ;
   .
 
@@ -4045,7 +4130,6 @@ bf:translationOf
     "2016-04-29 (added inverse, updated range)" ,
     "2017-02-03 (corrected subproperty)"
     ;
-  owl:inverseOf bf:translation ;
   skos:definition "Resource that has been translated, i.e., the text is expressed in a language different from that of the original resource." ;
   .
 
@@ -4120,5 +4204,65 @@ bf:voiceType
   rdfs:domain bf:MusicVoice ;
   rdfs:range rdfs:Literal ;
   skos:definition "Specific type of voice group, such as chorus, solo." ;
+  .
+
+dcterms:creator
+  a owl:AnnotationProperty ;
+  .
+
+dcterms:description
+  a owl:AnnotationProperty ;
+  .
+
+dcterms:issued
+  a owl:AnnotationProperty ;
+  .
+
+dcterms:modified
+  a owl:AnnotationProperty ;
+  .
+
+dcterms:publisher
+  a owl:AnnotationProperty ;
+  .
+
+dcterms:rights
+  a owl:AnnotationProperty ;
+  .
+
+rdfs:resource
+  a owl:AnnotationProperty ;
+  .
+
+skos:definition
+  a owl:AnnotationProperty ;
+  .
+
+skos:editorialNote
+  a owl:AnnotationProperty ;
+  .
+
+foaf:Agent
+  a owl:Class ;
+  .
+
+foaf:Person
+  a owl:Class ;
+  .
+
+_:blank1
+  rdfs:resource "http://id.loc.gov/vocabulary/organizations/dlc" ;
+  .
+
+_:blank2
+  rdfs:resource "http://id.loc.gov/vocabulary/organizations/dlc" ;
+  .
+
+_:blank3
+  rdfs:resource "http://id.loc.gov/vocabulary/organizations/dlcmrc" ;
+  .
+
+_:blank4
+  rdfs:resource "http://id.loc.gov/vocabulary/organizations/dlcmrc" ;
   .
 
