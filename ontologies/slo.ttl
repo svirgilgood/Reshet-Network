@@ -49,7 +49,27 @@ slo:Adjectival
     slo:Noun ,
     slo:Verbal
     ;
-  owl:equivalentClass _:blank35 ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      slo:Predicator
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasArgument ;
+        owl:someValuesFrom slo:Noun ;
+      ]
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasProperty ;
+        owl:someValuesFrom slo:GenderProperty ;
+      ]
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasProperty ;
+        owl:someValuesFrom slo:NumberProperty ;
+      ]
+    ) ;
+  ] ;
   skos:definition "gold defines: 'An adjectival, or 'adjective', is a part of speech whose members modify nouns. An adjectival specifies the attributes of a noun referent. Note: this is one case among many. Adjectivals are a class of modifiers. An adjectival may be inflected as comparitive or superlative [Crystal 1997: 8; Payne 1997: 63].'"@eng ;
   skos:prefLabel "Adjectival" ;
   .
@@ -71,7 +91,23 @@ slo:Adverbial
   rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
   rdfs:seeAlso gold:Adverbial ;
   owl:disjointWith slo:Adjectival ;
-  owl:equivalentClass _:blank48 ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      slo:Predicator
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasArgument ;
+        owl:someValuesFrom [
+          a owl:Class ;
+          owl:unionOf (
+            slo:Verbal
+            slo:Adjectival
+          ) ;
+        ] ;
+      ]
+    ) ;
+  ] ;
   skos:definition "part of speech that modifies words other than substantives" ;
   skos:prefLabel "Adverbial" ;
   .
@@ -144,7 +180,17 @@ slo:Determiner
   rdfs:comment "This could be a category of adjectives, rather than a seperate class, but it feels like Determiners are common and distinct enough they should get their own class" ;
   rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
   rdfs:seeAlso gold:Determiner ;
-  owl:equivalentClass _:blank36 ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      slo:Adjectival
+      [
+        a owl:Restriction ;
+        owl:onProperty gist:isCategorizedBy ;
+        owl:someValuesFrom slo:DeterminerType ;
+      ]
+    ) ;
+  ] ;
   skos:definition "gold defines: 'rdfs:comment \"A Determiner is a part of speech whose members belong to a class of noun modifiers and express the reference, including  quantity, of a noun [Crystal 1997: 112].'"@eng ;
   skos:prefLabel "Determiner" ;
   .
@@ -316,9 +362,39 @@ slo:Noun
   a owl:Class ;
   rdfs:subClassOf
     slo:PartOfSpeechProperty ,
-    _:blank37 ,
-    _:blank38 ,
-    _:blank39
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:CaseProperty ;
+        ]
+      ) ;
+    ] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:GenderProperty ;
+        ]
+      ) ;
+    ] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:NumberProperty ;
+        ]
+      ) ;
+    ]
     ;
   rdfs:comment "What is a noun? Van De Merwe, Naude, and Kroeze define a Noun as 'The noun is a term in the grammatical calssification of words that traditionally refers to a class of words indicating persons or things. The noun includes the following main classes: SUBSTANTIVES, pronouns and numerals' [p. 535]" ;
   rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
@@ -394,9 +470,39 @@ slo:Participle
   a owl:Class ;
   rdfs:subClassOf
     slo:PartOfSpeechProperty ,
-    _:blank40 ,
-    _:blank41 ,
-    _:blank42
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:GenderProperty ;
+        ]
+      ) ;
+    ] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:NumberProperty ;
+        ]
+      ) ;
+    ] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:PartOfSpeechProperty
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:VerbStem ;
+        ]
+      ) ;
+    ]
     ;
   rdfs:comment
     "gold defines this class: 'A participle is a word which participates as both a verb (by showing tense) and as an adjective (by showing adjectival inflection).  In modern usage, the term refers to a non-finite part of the verb other than the infinitive (independent of the function of these forms in the sentence).  [Bauer 2004: 82]'"@eng ,
@@ -439,7 +545,17 @@ slo:Predicator
   rdfs:subClassOf slo:PartOfSpeechProperty ;
   rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
   rdfs:seeAlso gold:Predicator ;
-  owl:equivalentClass _:blank43 ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      slo:PartOfSpeechProperty
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasArgument ;
+        owl:someValuesFrom slo:LinguisticUnit ;
+      ]
+    ) ;
+  ] ;
   skos:definition "gold defines: 'Predicator is the class of syntactic words that are fundamentally relation inducing. That is, predicators license argument structure [Anderson 1997: 14]. Verbs are quintessential predicators, though other categories, such as determiners and some nouns, are also predicative in nature.'"@eng ;
   skos:prefLabel "Predicator" ;
   .
@@ -507,13 +623,63 @@ slo:Verbal
   a owl:Class ;
   rdfs:subClassOf
     slo:Predicator ,
-    _:blank44 ,
-    _:blank45 ,
-    _:blank46
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:Predicator
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasObject ;
+          owl:someValuesFrom slo:LinguisticUnit ;
+        ]
+      ) ;
+    ] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:Predicator
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:GenderProperty ;
+        ]
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasProperty ;
+          owl:someValuesFrom slo:NumberProperty ;
+        ]
+      ) ;
+    ] ,
+    [
+      a owl:Class ;
+      owl:intersectionOf (
+        slo:Predicator
+        [
+          a owl:Restriction ;
+          owl:onProperty slo:hasSubject ;
+          owl:someValuesFrom slo:LinguisticUnit ;
+        ]
+      ) ;
+    ]
     ;
   rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
   rdfs:seeAlso gold:Verbal ;
-  owl:equivalentClass _:blank47 ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      slo:Predicator
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasProperty ;
+        owl:someValuesFrom slo:TenseMoodAspect ;
+      ]
+      [
+        a owl:Restriction ;
+        owl:onProperty slo:hasProperty ;
+        owl:someValuesFrom slo:VerbStem ;
+      ]
+    ) ;
+  ] ;
   skos:definition "gold defines: 'A Verbal is a part of speech whose members typically signal events and actions; constitute, singly or in a phrase, a minimal  predicate in a  clause; govern the number and types of other constituents which may occur in the clause; and, in inflectional languages, may be inflected for tense, aspect, voice, modality, or agreement with other constituents in person, number, or grammatical gender  [Crystal 1997: 409; Givon 1984: 52; Payne 1997: 47].'"@eng ;
   skos:prefLabel "Verbal" ;
   .
@@ -615,358 +781,5 @@ gist:isCategorizedBy
 
 gist:license
   a owl:AnnotationProperty ;
-  .
-
-_:blank01
-  rdf:first slo:Adjectival ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank02
-  rdf:first slo:Adjectival ;
-  rdf:rest _:blank34 ;
-  .
-
-_:blank03
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank18 ;
-  .
-
-_:blank04
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank21 ;
-  .
-
-_:blank05
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank22 ;
-  .
-
-_:blank06
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank23 ;
-  .
-
-_:blank07
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank26 ;
-  .
-
-_:blank08
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank27 ;
-  .
-
-_:blank09
-  rdf:first slo:PartOfSpeechProperty ;
-  rdf:rest _:blank31 ;
-  .
-
-_:blank10
-  rdf:first slo:Predicator ;
-  rdf:rest _:blank17 ;
-  .
-
-_:blank11
-  rdf:first slo:Predicator ;
-  rdf:rest _:blank19 ;
-  .
-
-_:blank12
-  rdf:first slo:Predicator ;
-  rdf:rest _:blank20 ;
-  .
-
-_:blank13
-  rdf:first slo:Predicator ;
-  rdf:rest _:blank24 ;
-  .
-
-_:blank14
-  rdf:first slo:Predicator ;
-  rdf:rest _:blank30 ;
-  .
-
-_:blank15
-  rdf:first slo:Predicator ;
-  rdf:rest _:blank33 ;
-  .
-
-_:blank16
-  rdf:first slo:Verbal ;
-  rdf:rest _:blank01 ;
-  .
-
-_:blank17
-  rdf:first _:blank50 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank18
-  rdf:first _:blank51 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank19
-  rdf:first _:blank52 ;
-  rdf:rest _:blank25 ;
-  .
-
-_:blank20
-  rdf:first _:blank53 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank21
-  rdf:first _:blank54 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank22
-  rdf:first _:blank55 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank23
-  rdf:first _:blank56 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank24
-  rdf:first _:blank57 ;
-  rdf:rest _:blank28 ;
-  .
-
-_:blank25
-  rdf:first _:blank58 ;
-  rdf:rest _:blank29 ;
-  .
-
-_:blank26
-  rdf:first _:blank59 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank27
-  rdf:first _:blank60 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank28
-  rdf:first _:blank61 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank29
-  rdf:first _:blank62 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank30
-  rdf:first _:blank63 ;
-  rdf:rest _:blank32 ;
-  .
-
-_:blank31
-  rdf:first _:blank64 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank32
-  rdf:first _:blank65 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank33
-  rdf:first _:blank66 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank34
-  rdf:first _:blank67 ;
-  rdf:rest rdf:nil ;
-  .
-
-_:blank35
-  a owl:Class ;
-  owl:intersectionOf _:blank11 ;
-  .
-
-_:blank36
-  a owl:Class ;
-  owl:intersectionOf _:blank02 ;
-  .
-
-_:blank37
-  a owl:Class ;
-  owl:intersectionOf _:blank05 ;
-  .
-
-_:blank38
-  a owl:Class ;
-  owl:intersectionOf _:blank07 ;
-  .
-
-_:blank39
-  a owl:Class ;
-  owl:intersectionOf _:blank04 ;
-  .
-
-_:blank40
-  a owl:Class ;
-  owl:intersectionOf _:blank06 ;
-  .
-
-_:blank41
-  a owl:Class ;
-  owl:intersectionOf _:blank08 ;
-  .
-
-_:blank42
-  a owl:Class ;
-  owl:intersectionOf _:blank09 ;
-  .
-
-_:blank43
-  a owl:Class ;
-  owl:intersectionOf _:blank03 ;
-  .
-
-_:blank44
-  a owl:Class ;
-  owl:intersectionOf _:blank12 ;
-  .
-
-_:blank45
-  a owl:Class ;
-  owl:intersectionOf _:blank13 ;
-  .
-
-_:blank46
-  a owl:Class ;
-  owl:intersectionOf _:blank15 ;
-  .
-
-_:blank47
-  a owl:Class ;
-  owl:intersectionOf _:blank14 ;
-  .
-
-_:blank48
-  a owl:Class ;
-  owl:intersectionOf _:blank10 ;
-  .
-
-_:blank49
-  a owl:Class ;
-  owl:unionOf _:blank16 ;
-  .
-
-_:blank50
-  a owl:Restriction ;
-  owl:onProperty slo:hasArgument ;
-  owl:someValuesFrom _:blank49 ;
-  .
-
-_:blank51
-  a owl:Restriction ;
-  owl:onProperty slo:hasArgument ;
-  owl:someValuesFrom slo:LinguisticUnit ;
-  .
-
-_:blank52
-  a owl:Restriction ;
-  owl:onProperty slo:hasArgument ;
-  owl:someValuesFrom slo:Noun ;
-  .
-
-_:blank53
-  a owl:Restriction ;
-  owl:onProperty slo:hasObject ;
-  owl:someValuesFrom slo:LinguisticUnit ;
-  .
-
-_:blank54
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:CaseProperty ;
-  .
-
-_:blank55
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:GenderProperty ;
-  .
-
-_:blank56
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:GenderProperty ;
-  .
-
-_:blank57
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:GenderProperty ;
-  .
-
-_:blank58
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:GenderProperty ;
-  .
-
-_:blank59
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:NumberProperty ;
-  .
-
-_:blank60
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:NumberProperty ;
-  .
-
-_:blank61
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:NumberProperty ;
-  .
-
-_:blank62
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:NumberProperty ;
-  .
-
-_:blank63
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:TenseMoodAspect ;
-  .
-
-_:blank64
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:VerbStem ;
-  .
-
-_:blank65
-  a owl:Restriction ;
-  owl:onProperty slo:hasProperty ;
-  owl:someValuesFrom slo:VerbStem ;
-  .
-
-_:blank66
-  a owl:Restriction ;
-  owl:onProperty slo:hasSubject ;
-  owl:someValuesFrom slo:LinguisticUnit ;
-  .
-
-_:blank67
-  a owl:Restriction ;
-  owl:onProperty gist:isCategorizedBy ;
-  owl:someValuesFrom slo:DeterminerType ;
   .
 
