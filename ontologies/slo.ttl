@@ -1,4 +1,3 @@
-@prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix gold: <http://purl.org/linguistics/gold/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,13 +8,13 @@
 @prefix wdt: <https://www.wikidata.org/wiki/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix meta: <http://github.io/ontologies/meta/v1#> .
 
 <https://ontologies.edubbainstitute.org/slo/>
   a owl:Ontology ;
   owl:versionIRI slo:slo1.0.0 ;
   skos:definition "SLO, the Semitic Linguistic Ontology is a qualified ontology for defining" ;
   skos:prefLabel "Semitic Linguistic Ontology" ;
-  gist:license "https://ontologies.edubbainstitute.org/slo/" ;
   .
 
 skos:altLabel
@@ -186,7 +185,7 @@ slo:Determiner
       slo:Adjectival
       [
         a owl:Restriction ;
-        owl:onProperty gist:isCategorizedBy ;
+        owl:onProperty meta:isCategorizedBy ;
         owl:someValuesFrom slo:DeterminerType ;
       ]
     ) ;
@@ -290,7 +289,6 @@ slo:Language
 slo:LinguisticCode
   a owl:Class ;
   rdfs:isDefinedBy <https://ontologies.edubbainstitute.org/slo/> ;
-  rdfs:seeAlso gist:ID ;
   skos:definition "Used for referencing a linguistic code in another system." ;
   skos:example "the morphological codes provided by OSHB are linguistic codes used to identify a form, but only unique based on their position" ;
   skos:prefLabel "Linguistic Code" ;
@@ -775,11 +773,11 @@ slo:orthographicRep
   skos:prefLabel "orthographic representation" ;
   .
 
-gist:isCategorizedBy
+slo:inLanguage
   a owl:ObjectProperty ;
+  rdfs:seeAlso gold:inLanguage ;
+  skos:definition "from gold: 'The relation that holds between a LinguisticSign and a Language. The sign is said to be a member or part of that language.'" ;
+  skos:prefLabel "in language" ;
   .
 
-gist:license
-  a owl:AnnotationProperty ;
-  .
 

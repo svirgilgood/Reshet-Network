@@ -1,0 +1,43 @@
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix slo: <https://ontologies.edubbainstitute.org/slo/> .
+@prefix slx: <https://taxonomies.edubbainstitute.org/slx/> .
+@prefix wdt: <https://www.wikidata.org/wiki/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix meta: <http://github.io/ontologies/meta/v1#> .
+
+<http://github.io/ontologies/meta/v1#> 
+  a owl:Ontology ;
+  owl:versionIRI meta:meta1.0.0 ;
+  skos:definition "Metadata Ontology for General Description" ;
+  skos:prefLabel "Meta Ontology" ;
+  .
+
+ meta:Collection 
+  a owl:Class ;
+  skos:prefLabel "Collection" ;
+  skos:definition "A grouping of things" ;
+  .
+
+meta:OrderedCollection 
+  a owl:Class ;
+  skos:prefLabel "Ordered Collection" ;
+  skos:definition "A collection where all of the members are sequentially ordered." ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      meta:Collection 
+      [
+        a owl:Restriction ;
+        owl:onProperty meta:hasMember ;
+        owl:allValuesFrom meta:OrderedMember ;
+      ]
+    ) ;
+  ] ;
+  .
+
+

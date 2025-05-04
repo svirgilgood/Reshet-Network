@@ -1,0 +1,96 @@
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix slo: <https://ontologies.edubbainstitute.org/slo/> .
+@prefix slx: <https://taxonomies.edubbainstitute.org/slx/> .
+@prefix wdt: <https://www.wikidata.org/wiki/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix meta: <http://github.io/ontologies/meta/v1#> . 
+@prefix codex: <http://github.io/ontologies/codex/v1#> .
+
+<http://github.io/ontologies/codex/v1#> 
+  a owl:Ontology ;
+  owl:versionIRI meta:meta1.0.0 ;
+  skos:definition "Codex: An Ontology for the physical description of written documents" ;
+  skos:prefLabel "Codex Ontology" ;
+  .
+
+codex:Book 
+  a owl:Class ;
+  rdfs:subClassOf meta:OrderedCollection ;
+  skos:defintion "A larger level of a work. Bigger than a chapter, or a verse." ;
+  skos:prefLabel "Book" ;
+  .
+
+codex:Chapter 
+  a owl:Class ;
+  rdfs:subClassOf meta:OrderedCollection ;
+  skos:definition "A segment of a Book." ;
+  skos:prefLabel "Chapter" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      meta:OrderedCollection 
+      [
+        a owl:Restriction ;
+        owl:onProperty [
+          owl:inverseOf gist:hasMember ;
+        ] ;
+        owl:someValuesFrom codex:Book ;
+      ]
+    ) ;
+  ] ;
+  .
+
+codex:Verse 
+  a owl:Class ;
+  rdfs:subClassOf meta:OrderedCollection ;
+  skos:definition "A small division in a larger work" ;
+  skos:prefLabel "Verse" ;
+  .
+
+codex:OrthographicElement 
+  a owl:Class ;
+  rdfs:subClassOf meta:OrderedMember ;
+  skos:definition "A self contained orthographic unit on the page. Like a footnot marker, or a word" ;
+  skos:prefLabel "Orthographic Element" ;
+  .
+
+codex:OrderedWord
+  a owl:Class ;
+  skos:definition "The representation of the word in a written text." ;
+  skos:prefLabel "Orthographic Word" ;
+  skos:altLabel "Word" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+      codex:OrthographicElement 
+      [
+        a owl:Restriction ;
+        owl:onProperty meta:hasMember ;
+        owl:someValuesFrom slo:OrthographicWord ;
+        .
+      ]
+    ) ;
+  ] ;
+  .
+
+codex:Punctuation 
+  a owl:Class ;
+  rdfs:subClassOf meta:OrthographicElement ;
+  skos:definition "A mark to break up texts. This could be a word divider, a period, a paragraph marker, etc." ;
+  skos:prefLabel "Punctuation" ;
+  owl:disjointWith codex:OrderedWord, owl:EditorialNote ;
+  .
+  
+codex:EditorialNote 
+  a owl:Class ;
+  rdfs:subClassOf meta:OrthographicElement ;
+  skos:definition "A mark added to a text to either mark a marginal note, or for the editor to indicate a problem. Like a footnote marker, or a exclamation to point to a scribal mistake, etc." ;
+  skos:prefLabel "Editorial Note" ;
+  . 
+
+
